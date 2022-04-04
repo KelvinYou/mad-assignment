@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Assignment</string>
+    <string name="no_account">Not have an account? <b>Sign Up</b></string>
+    <string name="back_to_login">Back to <b>Login</b></string>
+</resources>
