@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Assignment">
         <activity
+            android:name=".Comment"
+            android:exported="false" />
+        <activity
             android:name=".Review"
             android:exported="false" />
         <activity
