@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Assignment">
         <activity
+            android:name=".Review"
+            android:exported="false" />
+        <activity
+            android:name=".AskQuestion"
+            android:exported="false" />
+        <activity
+            android:name=".MainQnA"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main"
