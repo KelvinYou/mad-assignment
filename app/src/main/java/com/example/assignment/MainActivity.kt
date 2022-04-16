@@ -16,13 +16,31 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 //    lateinit var binding: ActivityMainBinding
 //    lateinit var auth: FirebaseAuth
+
+    private val profilefragment= ProfileFragment()
+    private val questionfragment= QuestionFragment()
+    private val homefragment=HomeFragment()
+    private val commentfragment=CommentFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        replacefragement(homefragment)
+
+bottom_navigation.setOnNavigationItemSelectedListener {
+    when(it.itemId){
+        R.id.ic_home ->replacefragement(homefragment)
+        R.id.ic_question ->replacefragement(questionfragment)
+        R.id.ic_profile ->replacefragement(profilefragment)
+        R.id.ic_answer ->replacefragement(commentfragment)
+    }
+    true
+}
+
 //        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 //        auth = Firebase.auth
 
@@ -65,6 +83,17 @@ class MainActivity : AppCompatActivity() {
 //            }
 //            true
 //        }
+
+
+
+    }
+
+    private fun replacefragement(fragment: Fragment){
+        if(fragment!=null){
+            val transaction= supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragmentContainerView,fragment)
+            transaction.commit()
+        }
     }
 
 //    private fun makeCurrentFragment(fragment: Fragment) {
