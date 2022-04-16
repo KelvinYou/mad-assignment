@@ -12,16 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Assignment">
         <activity
-            android:name=".tutorial.TutorialCommentActivity"
+            android:name=".QuestionsList"
             android:exported="false" />
         <activity
-            android:name=".tutorial.AddTutorialActivity"
+            android:name=".AskQuestions"
             android:exported="false" />
-        <activity
-            android:name=".tutorial.TutorialDetailActivity"
-            android:exported="false"
-            android:label="@string/title_activity_tutorial_detail"
-            android:theme="@style/Theme.Assignment.NoActionBar" />
         <activity
             android:name=".Review"
             android:exported="false" />

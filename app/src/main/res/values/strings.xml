@@ -1,14 +1,20 @@
 <resources>
     <string name="app_name">Assignment</string>
-    <string name="no_account">Not have an account? <b>Sign Up</b></string>
-    <string name="back_to_login">Back to <b>Login</b></string>
+    <string name="no_account">
+Not have an account?
+<b>Sign Up</b>
+</string>
+    <string name="back_to_login">
+Back to
+<b>Login</b>
+</string>
     <string name="home">Home</string>
     <string name="question">Question</string>
     <string name="profile">Profile</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <!--  TODO: Remove or change this placeholder text  -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_navigation">NavigationActivity</string>
-    <!-- Strings used for fragments for navigation -->
+    <!--  Strings used for fragments for navigation  -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
@@ -19,11 +25,9 @@
     <string name="put_your_contents_here">Put your contents here</string>
     <string name="submit">Submit</string>
     <string name="comment_here">Comment Here</string>
-
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_main">MainActivity</string>
-
     <string name="time">time</string>
     <string name="username">Username</string>
     <string name="date">date</string>
