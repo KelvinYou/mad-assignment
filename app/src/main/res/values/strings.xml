@@ -13,8 +13,23 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="add_button">+</string>
+    <string name="comment">Comment</string>
+    <string name="add_tutorial">Add Tutorial</string>
+    <string name="put_your_contents_here">Put your contents here</string>
+    <string name="submit">Submit</string>
+    <string name="comment_here">Comment Here</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_main">MainActivity</string>
+
+    <string name="time">time</string>
+    <string name="username">Username</string>
+    <string name="date">date</string>
+    <string name="tutorialname">TutorialName</string>
+    <string name="tutorial">Tutorial</string>
+    <string name="title_activity_tutorial_detail">TutorialDetailActivity</string>
+    <string name="add_tutorial_title_max_100_characters">Add tutorial title (max 15 words)</string>
+    <string name="post">Post</string>
 </resources>

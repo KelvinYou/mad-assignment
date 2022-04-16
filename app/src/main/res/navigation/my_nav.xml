@@ -20,4 +20,14 @@
         android:name="com.example.assignment.QuestionFragment"
         android:label="fragment_question"
         tools:layout="@layout/fragment_question" />
+    <fragment
+        android:id="@+id/answerFragment"
+        android:name="com.example.assignment.AnswerFragment"
+        android:label="fragment_answer"
+        tools:layout="@layout/fragment_answer" />
+    <fragment
+        android:id="@+id/commentFragment"
+        android:name="com.example.assignment.CommentFragment"
+        android:label="fragment_comment"
+        tools:layout="@layout/fragment_comment" />
 </navigation>
