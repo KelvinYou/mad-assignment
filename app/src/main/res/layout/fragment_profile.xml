@@ -9,101 +9,118 @@
     tools:context=".ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailTil"
-
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_centerInParent="true"
+        android:layout_height="match_parent">
 
-        >
 
-        <EditText
-            android:id="@+id/emailEt"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical">
 
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:id="@+id/nameTil"
-        android:layout_above="@id/emailTil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        >
-
-        <EditText
-            android:id="@+id/nameEt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name"
-            android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="200dp"
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phoneTil"
+                android:layout_marginBottom="20dp"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_below="@id/emailTil">
+                >
 
-        <EditText
-            android:id="@+id/phoneEt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Phone number"
-            android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
+                <EditText
+                    android:id="@+id/emailEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/changePassword"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_below="@id/phoneTil"
+            <com.google.android.material.textfield.TextInputLayout
 
-        android:backgroundTint="@color/lightgray"
-        android:text="Change password"
-        android:textAlignment="viewStart"
-        android:textColor="@color/gray"
-        android:textSize="13sp" />
+                android:id="@+id/nameTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+
+                <EditText
+                    android:id="@+id/nameEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-    <Button
-        android:id="@+id/logoutBtn"
-        android:layout_marginTop="0dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/orange"
-        android:layout_below="@id/saveBtn"
-        android:layout_centerInParent="true"
-        android:text="Logout"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phoneTil"
 
-    <Button
-        android:id="@+id/cancelBtn"
-        android:layout_marginTop="20dp"
-        android:layout_width="175dp"
-        android:layout_height="59dp"
-        android:backgroundTint="@color/darkergray"
-        android:layout_below="@id/changePassword"
-        android:text="cancel"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
 
-    <Button
-        android:id="@+id/saveBtn"
-        android:layout_marginTop="20dp"
-        android:layout_width="175dp"
-        android:layout_height="59dp"
-        android:backgroundTint="@color/orange"
-        android:layout_below="@id/changePassword"
-        android:layout_toRightOf="@id/cancelBtn"
-        android:layout_marginLeft="20dp"
-        android:text="save"/>
+                <EditText
+                    android:id="@+id/phoneEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone number"
+                    android:inputType="textPhonetic" />
+            </com.google.android.material.textfield.TextInputLayout>
 
+            <Button
+                android:id="@+id/changePassword"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+
+                android:backgroundTint="@color/lightgray"
+                android:text="Change password"
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray"
+                android:textSize="13sp" />
+
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/cancelBtn"
+                    android:layout_width="175dp"
+                    android:layout_height="59dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/darkergray"
+                    android:text="cancel" />
+
+                <Button
+                    android:id="@+id/saveBtn"
+                    android:layout_width="175dp"
+                    android:layout_height="59dp"
+                    android:layout_below="@id/changePassword"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@id/cancelBtn"
+                    android:backgroundTint="@color/orange"
+                    android:text="save" />
+
+
+            </TableRow>
+
+            <Button
+                android:id="@+id/logoutBtn"
+                android:layout_width="175dp"
+                android:layout_height="59dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+android:layout_marginLeft="90dp"
+                android:backgroundTint="@color/orange"
+                android:text="Logout" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
