@@ -19,7 +19,8 @@ class ChangePassword : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.Cancelbutton.setOnClickListener {
-            startActivity(Intent(this,ProfileActivity::class.java))
+            startActivity(Intent(this,MainActivity::class.java))
+
         }
         binding.Changebutton.setOnClickListener {
 
