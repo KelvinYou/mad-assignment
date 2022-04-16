@@ -9,5 +9,5 @@ data class TutorialComment (
     var content : String = "",
     var date : Date = Date(),
     var userID : String = "",
-    var articleID : String = ""
+    var tutorialID : String = ""
 )

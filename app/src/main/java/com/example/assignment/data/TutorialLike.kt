@@ -7,6 +7,6 @@ data class TutorialLike (
 //    @DocumentId
     var id : String = "",
     var date : Date = Date(),
-    var articleID : String = "",
+    var tutorialID : String = "",
     var userID : String = "",
 )
