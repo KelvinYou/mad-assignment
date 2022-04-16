@@ -14,6 +14,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.example.assignment.databinding.ActivitySignUpBinding
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
@@ -24,89 +26,83 @@ import com.google.firebase.firestore.DocumentReference as DocumentReference1
 
 class SignUpActivity : AppCompatActivity() {
 
-    private lateinit var binding:ActivitySignUpBinding
+    private lateinit var binding: ActivitySignUpBinding
 
-    private lateinit var actionBar:ActionBar
+    private lateinit var actionBar: ActionBar
 
-    private lateinit var progressDialog:ProgressDialog
+    private lateinit var progressDialog: ProgressDialog
 
     private lateinit var firebaseAuth: FirebaseAuth
 
     private lateinit var database: DatabaseReference
 
-    private var email=""
-    private var password=""
-    private var name=""
-    private var phone=""
-    private var conpass=""
-
-
-
-
-
+    private var email = ""
+    private var password = ""
+    private var name = ""
+    private var phone = ""
+    private var conpass = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivitySignUpBinding.inflate(layoutInflater)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         (Color.parseColor("#F69300"))
-        val text1="Solution 4U"
-        val spanString= SpannableString(text1)
-        val white= ForegroundColorSpan(Color.WHITE)
-        val orange= ForegroundColorSpan(Color.parseColor("#F69300"))
+        val text1 = "Solution 4U"
+        val spanString = SpannableString(text1)
+        val white = ForegroundColorSpan(Color.WHITE)
+        val orange = ForegroundColorSpan(Color.parseColor("#F69300"))
 
-        spanString.setSpan(white,0,8, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        spanString.setSpan(orange,9,11, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spanString.setSpan(white, 0, 8, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spanString.setSpan(orange, 9, 11, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-        binding.tvsignupquote.text=spanString
+        binding.tvsignupquote.text = spanString
 
-        actionBar=supportActionBar!!
-        actionBar.title="Sign Up"
+        actionBar = supportActionBar!!
+        actionBar.title = "Sign Up"
         actionBar.setDisplayHomeAsUpEnabled(true)
         actionBar.setDisplayShowHomeEnabled(true)
 
 
-        progressDialog= ProgressDialog(this)
+        progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Please Wait")
         progressDialog.setMessage("Creating Account")
         progressDialog.setCanceledOnTouchOutside(false)
 
-        firebaseAuth=FirebaseAuth.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
         binding.SignupBtn.setOnClickListener {
             validateData()
         }
 
 
-        binding.backLogin.setOnClickListener{
-            startActivity(Intent(this,LoginActivity::class.java))
+        binding.backLogin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 
     private fun validateData() {
 
-        name=binding.nameEt.text.toString().trim()
-        phone=binding.phoneEt.text.toString().trim()
-        conpass=binding.conPasswordEt.text.toString().trim()
-        email=binding.emailEt.text.toString().trim()
-        password=binding.PasswordEt.text.toString().trim()
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            binding.emailEt.error="Invalid Email Format"
-        }
-        else if(TextUtils.isEmpty(password)){
-            binding.PasswordEt.error="Please Enter Password"
-        }else if(password.length<6){
-            binding.PasswordEt.error="Password must be atleast 6 Character Long"
+        name = binding.nameEt.text.toString().trim()
+        phone = binding.phoneEt.text.toString().trim()
+        conpass = binding.conPasswordEt.text.toString().trim()
+        email = binding.emailEt.text.toString().trim()
+        password = binding.PasswordEt.text.toString().trim()
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.emailEt.error = "Invalid Email Format"
+        } else if (TextUtils.isEmpty(password)) {
+            binding.PasswordEt.error = "Please Enter Password"
+        } else if (password.length < 6) {
+            binding.PasswordEt.error = "Password must be atleast 6 Character Long"
 
-        }else if(password!=conpass){
-            binding.PasswordEt.error="Please make sure password is the same"
+        } else if (password != conpass) {
+            binding.PasswordEt.error = "Please make sure password is the same"
 
-        }else if(TextUtils.isEmpty(name)){
-            binding.nameEt.error="Name cannot be empty"
+        } else if (TextUtils.isEmpty(name)) {
+            binding.nameEt.error = "Name cannot be empty"
 
-        } else if(TextUtils.isEmpty(phone)){
-            binding.phoneEt.error="Phone number cannot be empty"
+        } else if (TextUtils.isEmpty(phone)) {
+            binding.phoneEt.error = "Phone number cannot be empty"
 
         } else {
 
@@ -119,26 +115,54 @@ class SignUpActivity : AppCompatActivity() {
     private fun firebaseSignUp() {
 
 
+        progressDialog.setMessage("Creating Account.....")
         progressDialog.show()
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnSuccessListener {
-                database= FirebaseDatabase.getInstance().getReference("user")
-                val User=user(name,email,phone)
-                database.child(name).setValue(User).addOnSuccessListener {  }
+                    updateuserinfo()
+            }.addOnFailureListener { e->
+                progressDialog.dismiss()
+                Toast.makeText(this,"Account created failed due to ${e.message}",Toast.LENGTH_SHORT).show()
+            }
 
-                Toast.makeText(this,"Account Created with email $email",Toast.LENGTH_SHORT).show()
 
 
 
-                startActivity(Intent(this,ProfileActivity::class.java))
+
+
+
+
+
+
+
+
+    }
+
+    private fun updateuserinfo() {
+        val uid=firebaseAuth.uid
+        val hashMap: HashMap<String, Any?> = HashMap()
+        hashMap["uid"]=uid
+        hashMap["email"]=email
+        hashMap["name"]=name
+        hashMap["photo"]=""
+        hashMap["phone"]=phone
+
+
+        val ref= FirebaseDatabase.getInstance().getReference("user")
+        ref.child(uid!!)
+            .setValue(hashMap)
+            .addOnSuccessListener {
+                progressDialog.dismiss()
+                Toast.makeText(this,"Account Created...",Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this,LoginActivity::class.java))
                 finish()
 
-            }
-            .addOnFailureListener {e->
+            }.addOnFailureListener { e->
                 progressDialog.dismiss()
-                Toast.makeText(this,"SignUp Failed due to ${e.message} ",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Failed saving user info due to ${e.message}",Toast.LENGTH_SHORT).show()
             }
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
