@@ -21,7 +21,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="30dp"
-            android:background="@drawable/greyframe"
+            android:background="@drawable/greybackground"
             app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cardView4"
@@ -29,8 +29,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/greyframe"
+                android:layout_height="wrap_content"
+                android:background="@drawable/greybackground"
                 android:paddingBottom="3dp">
 
                 <TextView

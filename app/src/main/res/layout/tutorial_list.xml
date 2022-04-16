@@ -25,79 +25,82 @@
         tools:layout_editor_absoluteY="8dp">
 
         <TextView
+            android:id="@+id/tvTutorialTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/orange"
+            android:gravity="center"
+            android:text="@string/tutorialname"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/tvTutorialContent"
             android:layout_width="339dp"
             android:layout_height="85dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
             android:justificationMode="inter_word"
             android:text="@string/tutorial"
             android:textColor="#050000"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTutorialTitle" />
-
-        <TextView
-            android:id="@+id/tvTutorialTitle"
-            android:layout_width="339dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="15dp"
-            android:text="@string/tutorialname"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTutorialDate" />
-
-        <ImageView
-            android:id="@+id/imgTutorialImage"
-            android:layout_width="339dp"
-            android:layout_height="211dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTutorialContent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            app:layout_constraintTop_toBottomOf="@+id/tvuserName" />
 
         <TextView
             android:id="@+id/tvuserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
             android:text="@string/username"
             android:textColor="#000000"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTutorialTitle" />
 
         <TextView
             android:id="@+id/tvTutorialDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginEnd="10dp"
             android:text="@string/date"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvuserName" />
+            app:layout_constraintBottom_toBottomOf="@+id/tvTutorialTime"
+            app:layout_constraintEnd_toStartOf="@+id/tvTutorialTime"
+            app:layout_constraintTop_toTopOf="@+id/tvTutorialTime"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/tvTutorialTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/time"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/tvTutorialDate"
-            app:layout_constraintTop_toBottomOf="@+id/tvuserName" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTutorialTitle" />
+
+        <ImageView
+            android:id="@+id/imgTutorialImage"
+            android:layout_width="339dp"
+            android:layout_height="211dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTutorialContent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

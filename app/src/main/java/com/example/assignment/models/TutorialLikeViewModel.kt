@@ -36,7 +36,7 @@ class TutorialLikeViewModel : ViewModel() {
 
     fun insert(like: TutorialLike) : Boolean{
 
-        val b = l.value?.find { a -> a.userID == like.userID && a.articleID == like.articleID }
+        val b = l.value?.find { a -> a.userID == like.userID && a.tutorialID == like.tutorialID }
         if (b != null){
             delete(b.id)
             return false
@@ -46,11 +46,11 @@ class TutorialLikeViewModel : ViewModel() {
         }
     }
 
-    fun getCountUser(articleID: String) : Int {
+    fun getCountUser(tutorialID: String) : Int {
         var count = 0
 
         l.value?.forEach { like ->
-            if(like.articleID == articleID){
+            if(like.tutorialID == tutorialID){
                 count += 1
 
             }

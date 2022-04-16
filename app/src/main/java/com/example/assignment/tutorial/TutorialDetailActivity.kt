@@ -54,7 +54,7 @@ class TutorialDetailActivity : AppCompatActivity() {
 
 
         binding.btnLike.setOnClickListener { like(id) }
-//        binding.btnComment.setOnClickListener { comment(id) }
+        binding.btnComment.setOnClickListener { comment(id) }
 //        binding.btnDeleteTutorialAdmin.setOnClickListener { delete() }
 //        binding.btnCancelDeleteAdmin.setOnClickListener { cancelDelete() }
 //        binding.btnShareTutorial.setOnClickListener { shareArticle() }
@@ -103,18 +103,18 @@ class TutorialDetailActivity : AppCompatActivity() {
 //    }
 
 
-//    private fun comment(id: String) {
-//        val intent = Intent(this, TutorialCommentActivity::class.java)
-//            .putExtra("id", id)
-//        startActivity(intent)
-//    }
+    private fun comment(id: String) {
+        val intent = Intent(this, TutorialCommentActivity::class.java)
+            .putExtra("id", id)
+        startActivity(intent)
+    }
 
     private fun like(id: String) {
 
         val currentDate = Date()
         val like = TutorialLike (
             date = currentDate,
-            articleID = id,
+            tutorialID = id,
             userID = Firebase.auth.currentUser?.email ?: ""
         )
 
@@ -176,7 +176,7 @@ class TutorialDetailActivity : AppCompatActivity() {
             //Count Total Like
             lk.getAll().observe(this){
                 for (userLike in it){
-                    if(userLike.articleID == id && userLike.userID == Firebase.auth.currentUser?.email ?: "" ){
+                    if(userLike.tutorialID == id && userLike.userID == Firebase.auth.currentUser?.email ?: "" ){
                         binding.btnLike.setImageResource(R.drawable.ic_dislike)
                     }
                 }
@@ -200,7 +200,7 @@ class TutorialDetailActivity : AppCompatActivity() {
                     tutorialDetailImage.setImageBitmap(tutorial.Image.toBitmap())
 
 //                    ur.getAll().observe(this@TutorialDetailActivity){
-//                        owner = ur.get(article.ownerID)!!
+//                        owner = ur.get(tutorial.ownerID)!!
 //                    }
 
 //                    if(isAdmin){
@@ -220,8 +220,6 @@ class TutorialDetailActivity : AppCompatActivity() {
 //                    }else{
 //                        btnDeleteTutorialAdmin.visibility = View.GONE
 //                        btnCancelDeleteAdmin.visibility = View.GONE
-//                        btnComment.visibility = View.VISIBLE
-//                        btnLike.visibility = View.VISIBLE
 //                    }
 
                 }
