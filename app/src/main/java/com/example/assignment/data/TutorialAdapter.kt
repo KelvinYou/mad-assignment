@@ -69,7 +69,7 @@ class TutorialAdapter (private val tutorialList: List<Tutorial>) : RecyclerView.
         holder.tutorialTitle.text = currentPosition.title
         holder.tutorialDate.text = SimpleDateFormat("dd-MM-yyyy").format(currentPosition.modifiedDate)
         holder.tutorialTime.text = SimpleDateFormat("h:mm aa").format(currentPosition.modifiedDate)
-//        holder.tutorialImage.setImageBitmap(currentPosition.Image.toBitmap())
+        holder.tutorialImage.setImageBitmap(currentPosition.Image.toBitmap())
         holder.tutorialID.text = currentPosition.id
 
     }

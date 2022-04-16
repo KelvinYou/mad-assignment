@@ -51,7 +51,8 @@ class ProfileFragment : Fragment() {
 
 
         binding.saveBtn.setOnClickListener {
-
+            val intent = Intent (getActivity(), ProfileActivity::class.java)
+            getActivity()?.startActivity(intent)
         }
 
         binding.changePassword.setOnClickListener {
