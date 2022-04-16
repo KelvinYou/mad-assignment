@@ -19,17 +19,15 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
 
-
 class AddTutorialActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddTutorialBinding
     val tr = TutorialViewModel()
 
     private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-           binding.imgAddTutorialImage.setImageURI(it.data?.data)
+            binding.imgAddTutorialImage.setImageURI(it.data?.data)
         }
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_tutorial)
@@ -47,61 +45,78 @@ class AddTutorialActivity : AppCompatActivity() {
         reset()
     }
 
-   override fun onSupportNavigateUp(): Boolean {
-       onBackPressed()
-       return true
-   }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 
-   private fun post() {
-       val database = FirebaseDatabase.getInstance().getReference("Tutorials")
+    private fun post() {
+        val tutorialTitle  = binding.edtTutorialTitle.text.toString().trim()
+        val tutorialDetail = binding.edtTutorialDetail.text.toString()
+        val currentDate = Date()
 
-       val tutorialTitle  = binding.edtTutorialTitle.text.toString().trim()
-       val tutorialDetail = binding.edtTutorialDetail.text.toString()
-       val currentDate = Date()
+        if(tutorialTitle == ""){
+            binding.edtTutorialTitle.error = "Please enter a title"
+            binding.edtTutorialTitle.requestFocus()
+            return
+        }
 
-       if(tutorialTitle == ""){
-           binding.edtTutorialTitle.error = "Please enter a title"
-           binding.edtTutorialTitle.requestFocus()
-           return
-       }
+        else if (tutorialDetail == ""){
+            binding.edtTutorialDetail.error = "Please input content"
+            binding.edtTutorialDetail.requestFocus()
+            return
+        }
 
-       else if (tutorialDetail == ""){
-           binding.edtTutorialDetail.error = "Please input content"
-           binding.edtTutorialDetail.requestFocus()
-           return
-       }
+        else if (wordCountCheck(tutorialTitle)) {
+            binding.edtTutorialTitle.error = "Your title is more than 15 words"
+            binding.edtTutorialTitle.requestFocus()
+            return
+        }
 
-       else if (wordCountCheck(tutorialTitle)) {
-           binding.edtTutorialTitle.error = "Your title is more than 15 words"
-           binding.edtTutorialTitle.requestFocus()
-           return
-       }
+        val tutorial = Tutorial (
+            title = tutorialTitle,
+            content = tutorialDetail,
+            status = "Posted",
+            createdDate = currentDate,
+            modifiedDate = currentDate,
+            ownerID = Firebase.auth.currentUser?.email ?: "",
+            Image =
+            try {
+                binding.imgAddTutorialImage.cropToBlob(200,200)
+            }catch (e : Exception){
+                Blob.fromBytes(ByteArray(0))
+            }
 
-       database.child("T001").setValue(Tutorial("T001", tutorialTitle, tutorialDetail,
-           "Posted", currentDate, currentDate, Firebase.auth.currentUser?.email ?: ""))
+        )
 
-   }
+        tr.insert(tutorial)
 
-   private fun wordCountCheck(tutorialTitle: String): Boolean {
-       val words = tutorialTitle.split("\\s+".toRegex())
+        finish()
 
-       return words.size > 15
-   }
+        reset()
 
-   private fun chooseImage() {
-       val intent = Intent(Intent.ACTION_GET_CONTENT)
-       intent.type = "image/*"
-       launcher.launch(intent)
-   }
+    }
 
-   private fun reset() {
-       with(binding){
-           edtTutorialTitle.text.clear()
-           edtTutorialDetail.text.clear()
-           imgAddTutorialImage.setImageBitmap(null)
+    private fun wordCountCheck(articleTitle: String): Boolean {
+        val words = articleTitle.split("\\s+".toRegex())
 
-           edtTutorialTitle.requestFocus()
+        return words.size > 15
+    }
 
-       }
-   }
+    private fun chooseImage() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+        launcher.launch(intent)
+    }
+
+    private fun reset() {
+        with(binding){
+            edtTutorialTitle.text.clear()
+            edtTutorialDetail.text.clear()
+            imgAddTutorialImage.setImageBitmap(null)
+
+            edtTutorialTitle.requestFocus()
+
+        }
+    }
 }
