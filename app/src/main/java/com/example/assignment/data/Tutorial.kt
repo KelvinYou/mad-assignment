@@ -6,7 +6,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 data class Tutorial (
-    @DocumentId
+//    @DocumentId
     var id : String = "",
     var title : String = "",
     var content : String = "",

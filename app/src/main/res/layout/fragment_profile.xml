@@ -19,55 +19,43 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailTil"
+
+            <TextView
+                android:id="@+id/emailEt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
+                android:paddingTop="18dp"
+                android:paddingLeft="13dp"
+
                 android:layout_marginTop="200dp"
-
-
                 android:layout_marginBottom="20dp"
+                android:background="@drawable/my_border"
+                android:textSize="18sp" />
 
-                >
 
-                <EditText
-                    android:id="@+id/emailEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-
-                android:id="@+id/nameTil"
+            <TextView
+                android:id="@+id/nameEt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp">
+                android:layout_height="60dp"
+                android:layout_marginBottom="20dp"
+                android:paddingTop="18dp"
+                android:paddingLeft="13dp"
 
-                <EditText
-                    android:id="@+id/nameEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Name"
-                    android:inputType="textEmailAddress" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:background="@drawable/my_border"
+                android:textSize="18sp" />
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phoneTil"
-
+            <TextView
+                android:id="@+id/phoneEt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp">
+                android:layout_height="60dp"
+                android:paddingLeft="13dp"
+                android:layout_marginBottom="20dp"
+                android:paddingTop="18dp"
+                android:background="@drawable/my_border"
 
-                <EditText
-                    android:id="@+id/phoneEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Phone number"
-                    android:inputType="textPhonetic" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:textAlignment="textStart"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/changePassword"
@@ -84,39 +72,33 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-
                 <Button
-                    android:id="@+id/cancelBtn"
+                    android:id="@+id/logoutBtn"
                     android:layout_width="175dp"
                     android:layout_height="59dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginTop="20dp"
+
                     android:backgroundTint="@color/darkergray"
-                    android:text="cancel" />
+                    android:text="Logout" />
+
 
                 <Button
                     android:id="@+id/saveBtn"
                     android:layout_width="175dp"
                     android:layout_height="59dp"
                     android:layout_below="@id/changePassword"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="20dp"
                     android:layout_toRightOf="@id/cancelBtn"
                     android:backgroundTint="@color/orange"
-                    android:text="save" />
+                    android:text="Edit Profile" />
 
 
             </TableRow>
 
-            <Button
-                android:id="@+id/logoutBtn"
-                android:layout_width="175dp"
-                android:layout_height="59dp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="10dp"
-android:layout_marginLeft="90dp"
-                android:backgroundTint="@color/orange"
-                android:text="Logout" />
+
 
 
         </LinearLayout>
