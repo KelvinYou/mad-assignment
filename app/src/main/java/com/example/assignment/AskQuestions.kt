@@ -10,9 +10,10 @@ import com.google.firebase.database.FirebaseDatabase
 class AskQuestions : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_ask_questions)
 
         var database = FirebaseDatabase.getInstance().getReference("Questions")
+
 
 
         val editTextTitle = findViewById<EditText>(R.id.editTextTitle)

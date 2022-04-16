@@ -9,7 +9,9 @@ import androidx.appcompat.app.ActionBar
 import com.example.assignment.databinding.ActivityProfileBinding
 import com.example.assignment.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
-import android.content.Intent as Intent
+import android.content.Intent
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 
 class ProfileFragment : Fragment() {
@@ -22,6 +24,7 @@ class ProfileFragment : Fragment() {
     private lateinit var actionBar: ActionBar
 
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var database:DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,10 +37,15 @@ class ProfileFragment : Fragment() {
 
         firebaseAuth= FirebaseAuth.getInstance()
         checkUser()
+        val name:String=binding.nameEt.text.toString()
+        readData(name)
 
         binding.logoutBtn.setOnClickListener {
             firebaseAuth.signOut()
             checkUser()
+            val intent = Intent (getActivity(), LoginActivity::class.java)
+            getActivity()?.startActivity(intent)
+
         }
 
 
@@ -48,6 +56,12 @@ class ProfileFragment : Fragment() {
         binding.saveBtn.setOnClickListener {
 
         }
+
+        binding.changePassword.setOnClickListener {
+            val intent = Intent (getActivity(), ChangePassword::class.java)
+            getActivity()?.startActivity(intent)
+        }
+
         return binding.root
         
     }
@@ -59,7 +73,23 @@ class ProfileFragment : Fragment() {
 
 
         }else{
+            val intent = Intent (getActivity(), LoginActivity::class.java)
+            getActivity()?.startActivity(intent)
 
+
+        }
+    }
+
+    private fun readData(name:String){
+        database=FirebaseDatabase.getInstance().getReference("user")
+        database.child(name).get().addOnSuccessListener {
+            if(it.exists()){
+                val name=it.child("name").value
+                val email=it.child("email").value
+                val phone=it.child("phone").value
+
+
+            }
 
         }
     }
