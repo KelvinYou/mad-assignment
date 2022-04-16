@@ -31,61 +31,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         replacefragement(homefragment)
 
-bottom_navigation.setOnNavigationItemSelectedListener {
-    when(it.itemId){
-        R.id.ic_home ->replacefragement(homefragment)
-        R.id.ic_question ->replacefragement(questionfragment)
-        R.id.ic_profile ->replacefragement(profilefragment)
-        R.id.ic_answer ->replacefragement(commentfragment)
-    }
-    true
-}
-
-//        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
-//        auth = Firebase.auth
-
-//        val homeFragment = HomeFragment()
-//        val questionFragment = QuestionFragment()
-//        val answerFragment = AnswerFragment()
-//        val profileFragment = ProfileFragment()
-//
-//        val navigation = intent.getIntExtra("navigation",0)
-//
-//        if(navigation == 0){
-//            makeCurrentFragment(homeFragment)
-//        }else {
-//            when(navigation){
-//                1 -> {
-//                    binding.bottomNavigation.selectedItemId = R.id.ic_home
-//                    makeCurrentFragment(homeFragment)
-//                }
-//                2 -> {
-//                    binding.bottomNavigation.selectedItemId = R.id.ic_question
-//                    makeCurrentFragment(questionFragment)
-//                }
-//                2 -> {
-//                    binding.bottomNavigation.selectedItemId = R.id.ic_answer
-//                    makeCurrentFragment(answerFragment)
-//                }
-//                4 -> {
-//                    binding.bottomNavigation.selectedItemId = R.id.ic_profile
-//                    makeCurrentFragment(profileFragment)
-//                }
-//            }
-//        }
-//
-//        binding.bottomNavigation.setOnItemSelectedListener {
-//            when(it.itemId){
-//                R.id.ic_home -> makeCurrentFragment(homeFragment)
-//                R.id.ic_question -> makeCurrentFragment(questionFragment)
-//                R.id.ic_answer -> makeCurrentFragment(answerFragment)
-//                R.id.ic_profile -> makeCurrentFragment(profileFragment)
-//            }
-//            true
-//        }
-
-
-
+        bottom_navigation.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.ic_home ->replacefragement(homefragment)
+                R.id.ic_question ->replacefragement(questionfragment)
+                R.id.ic_profile ->replacefragement(profilefragment)
+                R.id.ic_answer ->replacefragement(commentfragment)
+            }
+            true
+        }
     }
 
     private fun replacefragement(fragment: Fragment){
@@ -96,10 +50,4 @@ bottom_navigation.setOnNavigationItemSelectedListener {
         }
     }
 
-//    private fun makeCurrentFragment(fragment: Fragment) {
-//        supportFragmentManager.beginTransaction().apply {
-//            replace(R.id.fragmentContainerView, fragment)
-//            commit()
-//        }
-//    }
 }
