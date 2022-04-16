@@ -1,48 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".HomeFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".HomeFragment">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBarLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <Button
+            android:id="@+id/btnAddTutorial"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/orange_700"
+            android:text="@string/add_button"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-
-
-            </com.google.android.material.tabs.TabLayout>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager"
-            android:layout_width="409dp"
-            android:layout_height="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tutorialList"
+            android:layout_width="404dp"
+            android:layout_height="502dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="155dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/btnAddTutorial"
+            app:layout_constraintVertical_bias="0.0"
+            tools:listitem="@layout/tutorial_list" />
 
+        <Button
+            android:id="@+id/btnSortDate"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="@color/orange_700"
+            android:text="sort"
+            app:layout_constraintBottom_toBottomOf="@+id/btnAddTutorial"
+            app:layout_constraintEnd_toStartOf="@+id/btnAddTutorial"
+            app:layout_constraintTop_toTopOf="@+id/btnAddTutorial"
+            app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</layout>
+
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    tools:context=".HomeFragment">-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            tools:context=".HomeFragment">-->
+
+<!--            <Button-->
+<!--                android:id="@+id/btnAddActicle"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginTop="45dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:backgroundTint="@color/orange_700"-->
+<!--                android:text="@string/add_button"-->
+<!--                android:textSize="22sp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/acticleList"-->
+<!--                android:layout_width="404dp"-->
+<!--                android:layout_height="502dp"-->
+<!--                android:layout_marginTop="3dp"-->
+<!--                android:layout_marginEnd="2dp"-->
+<!--                android:layout_marginBottom="155dp"-->
+<!--                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/btnAddActicle"-->
+<!--                app:layout_constraintVertical_bias="0.0"-->
+<!--                tools:listitem="@layout/tutorial_list" />-->
+
+<!--            <Button-->
+<!--                android:id="@+id/btnSortDate"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginEnd="15dp"-->
+<!--                android:backgroundTint="@color/orange_700"-->
+<!--                android:text="sort"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/btnAddActicle"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/btnAddActicle"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/btnAddActicle"-->
+<!--                app:layout_constraintVertical_bias="1.0" />-->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--</FrameLayout>-->
 
