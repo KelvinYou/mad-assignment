@@ -14,12 +14,10 @@ class AskQuestions : AppCompatActivity() {
 
         var database = FirebaseDatabase.getInstance().getReference("Questions")
 
-
-
-        val editTextTitle = findViewById<EditText>(R.id.editTextTitle)
-        val editTextBody = findViewById<EditText>(R.id.editTextBody)
-        val editTextTags = findViewById<EditText>(R.id.editTextTags)
-        val buttonPost: Button = findViewById(R.id.buttonPost)
+        val editTextTitle = findViewById<EditText>(R.id.quesInputTitle)
+        val editTextBody = findViewById<EditText>(R.id.quesInputBody)
+        val editTextTags = findViewById<EditText>(R.id.quesInputTags)
+        val buttonPost: Button = findViewById(R.id.btnQuesPost)
 
         buttonPost.setOnClickListener {
             var askTitle = editTextTitle.text.toString()
@@ -30,7 +28,7 @@ class AskQuestions : AppCompatActivity() {
             database.child(askTitle.toString()).setValue(Ask(askTitle,askBody,askTags))
         }
 
-        val btnQuesList: Button = findViewById(R.id.btnQuesList)
+        val btnQuesList: Button = findViewById(R.id.btnQuesReview)
         btnQuesList.setOnClickListener(){
             val intentA: Intent = Intent(this, QuestionsList::class.java)
             startActivity(intentA)
