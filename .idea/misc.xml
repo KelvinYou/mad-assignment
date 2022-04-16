@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_baseline_build_24.xml" value="0.1415" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1415" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_baseline_question_mark_24.xml" value="0.1415" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/activity_add_tutorial.xml" value="0.24583333333333332" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/activity_ask_questions.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/activity_profile.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/activity_tutorial_detail.xml" value="0.24583333333333332" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/tutorial_list.xml" value="0.25" />
         <entry key="..\:/Users/The_c/Desktop/set8ChanZiCHeng/Assignment/app/src/main/res/layout/activity_change_password.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/The_c/Desktop/set8ChanZiCHeng/Assignment/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/The_c/Desktop/set8ChanZiCHeng/Assignment/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
