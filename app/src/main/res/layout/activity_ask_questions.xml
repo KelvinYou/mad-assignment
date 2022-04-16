@@ -7,7 +7,7 @@
     tools:context=".AskQuestions">
 
     <EditText
-        android:id="@+id/editTextTitle"
+        android:id="@+id/quesInputTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -19,11 +19,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionTitle"
+        app:layout_constraintTop_toBottomOf="@+id/quesDesTitle"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/editTextBody"
+        android:id="@+id/quesInputBody"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -35,11 +35,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionBody"
+        app:layout_constraintTop_toBottomOf="@+id/quesDesBody"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/editTextTags"
+        android:id="@+id/quesInputTags"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -51,22 +51,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionTags"
+        app:layout_constraintTop_toBottomOf="@+id/quesDesTags"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/buttonPost"
+        android:id="@+id/btnQuesPost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Post"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTitle"
+        app:layout_constraintEnd_toEndOf="@+id/quesInputTitle"
         app:layout_constraintHorizontal_bias="0.218"
-        app:layout_constraintStart_toStartOf="@+id/editTextTitle"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTags" />
+        app:layout_constraintStart_toStartOf="@+id/quesInputTitle"
+        app:layout_constraintTop_toBottomOf="@+id/quesInputTags" />
 
     <Button
-        android:id="@+id/btnQuesList"
+        android:id="@+id/btnQuesReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -74,10 +74,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTags" />
+        app:layout_constraintTop_toBottomOf="@+id/quesInputTags" />
 
     <TextView
-        android:id="@+id/textTitle"
+        android:id="@+id/quesTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -86,20 +86,20 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AskQuestionHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/quesHeader" />
 
     <TextView
-        android:id="@+id/descriptionTitle"
+        android:id="@+id/quesDesTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Be specific and imagine you’re asking a question to another person"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/editTextTitle"
-        app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+        app:layout_constraintStart_toStartOf="@+id/quesInputTitle"
+        app:layout_constraintTop_toBottomOf="@+id/quesTitle" />
 
     <TextView
-        android:id="@+id/textBody"
+        android:id="@+id/quesBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
@@ -108,20 +108,20 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/quesInputTitle" />
 
     <TextView
-        android:id="@+id/descriptionBody"
+        android:id="@+id/quesDesBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
         android:layout_marginTop="8dp"
         android:text="Include all the information someone would need to answer your question"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textBody" />
+        app:layout_constraintTop_toBottomOf="@+id/quesBody" />
 
     <TextView
-        android:id="@+id/textTags"
+        android:id="@+id/quesTags"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -130,20 +130,20 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBody" />
+        app:layout_constraintTop_toBottomOf="@+id/quesInputBody" />
 
     <TextView
-        android:id="@+id/descriptionTags"
+        android:id="@+id/quesDesTags"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
         android:text="Describe what your question is about"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textTags" />
+        app:layout_constraintTop_toBottomOf="@+id/quesTags" />
 
     <TextView
-        android:id="@+id/AskQuestionHeader"
+        android:id="@+id/quesHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
@@ -151,6 +151,6 @@
         android:text="Ask a public question"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textTitle"
+        app:layout_constraintStart_toStartOf="@+id/quesTitle"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
