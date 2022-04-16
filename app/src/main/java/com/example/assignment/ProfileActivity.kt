@@ -6,6 +6,10 @@ import android.os.Bundle
 import androidx.appcompat.app.ActionBar
 import com.example.assignment.databinding.ActivityProfileBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -46,6 +50,8 @@ class ProfileActivity : AppCompatActivity() {
             startActivity(Intent(this,ChangePassword::class.java))
         }
     }
+
+
 
     private fun checkUser() {
         val firebaseUser=firebaseAuth.currentUser

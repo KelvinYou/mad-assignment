@@ -10,8 +10,7 @@ import com.example.assignment.databinding.ActivityProfileBinding
 import com.example.assignment.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import android.content.Intent
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 
 class ProfileFragment : Fragment() {
@@ -37,21 +36,19 @@ class ProfileFragment : Fragment() {
 
         firebaseAuth= FirebaseAuth.getInstance()
         checkUser()
-        val name:String=binding.nameEt.text.toString()
-        readData(name)
+        loadUserInfo()
 
         binding.logoutBtn.setOnClickListener {
             firebaseAuth.signOut()
             checkUser()
+
             val intent = Intent (getActivity(), LoginActivity::class.java)
             getActivity()?.startActivity(intent)
 
         }
 
 
-        binding.cancelBtn.setOnClickListener {
 
-        }
 
         binding.saveBtn.setOnClickListener {
 
@@ -80,19 +77,34 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun readData(name:String){
-        database=FirebaseDatabase.getInstance().getReference("user")
-        database.child(name).get().addOnSuccessListener {
-            if(it.exists()){
-                val name=it.child("name").value
-                val email=it.child("email").value
-                val phone=it.child("phone").value
+    private fun loadUserInfo() {
+        val ref=FirebaseDatabase.getInstance().getReference("user")
+        ref.child(firebaseAuth.uid!!)
+            .addValueEventListener(object : ValueEventListener {
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val email= "${snapshot.child("email").value}"
+                    val name="${snapshot.child("name").value}"
+                    val phone="${snapshot.child("phone").value}"
+                    val photo="${snapshot.child("photo").value}"
+                    val uid="${snapshot.child("uid").value}"
+
+                    binding.nameEt.text=name
+                    binding.emailEt.text=email
+                    binding.phoneEt.text=phone
 
 
-            }
 
-        }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
     }
+
+
+
        
 
          }
