@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.data.TutorialAdapter
 import com.example.assignment.databinding.FragmentHomeBinding
 import com.example.assignment.models.TutorialViewModel
 import com.example.assignment.tutorial.*
 
 class HomeFragment : Fragment() {
-
     lateinit var binding: FragmentHomeBinding
     val tr : TutorialViewModel by activityViewModels()
 

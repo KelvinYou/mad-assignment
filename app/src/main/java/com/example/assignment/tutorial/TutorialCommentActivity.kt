@@ -10,3 +10,4 @@ class TutorialCommentActivity : AppCompatActivity() {
         setContentView(R.layout.activity_tutorial_comment)
     }
 }
+
