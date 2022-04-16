@@ -29,8 +29,8 @@ class TutorialDetailActivity : AppCompatActivity() {
     lateinit var binding : ActivityTutorialDetailBinding
     val ar : TutorialViewModel by viewModels()
     val lk : TutorialLikeViewModel by viewModels()
-//    val cm : TutorialCommentViewModel by viewModels()
-//    val ur : UserViewModel by viewModels()
+    val cm : TutorialCommentViewModel by viewModels()
+    val ur : UserViewModel by viewModels()
     lateinit var a  : Tutorial
     lateinit var owner : UserProfile
     private val col = Firebase.firestore.collection("TutorialLike")
@@ -60,17 +60,17 @@ class TutorialDetailActivity : AppCompatActivity() {
 //        binding.btnShareTutorial.setOnClickListener { shareArticle() }
 //
 //        val actionbar = supportActionBar
-//        actionbar!!.title = "Article Detail"
+//        actionbar!!.title = "Tutorial Detail"
 //        actionbar.setDisplayHomeAsUpEnabled(true)
 //        actionbar.setDisplayHomeAsUpEnabled(true)
-//
-//        reload(id, isAdmin,isDelete)
+
+        reload(id, isAdmin,isDelete)
     }
 
-//    override fun onSupportNavigateUp(): Boolean {
-//        onBackPressed()
-//        return true
-//    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 
 //    private fun shareArticle() {
 //
@@ -170,45 +170,39 @@ class TutorialDetailActivity : AppCompatActivity() {
 //        finish()
 //    }
 
-//    private fun reload(id: String, isAdmin : Boolean, isDelete : Boolean) {
-//        ar.getAll().observe(this){
-//
-//            //Count Total Like
-//            lk.getAll().observe(this){
-//                for (userLike in it){
-//                    if(userLike.articleID == id && userLike.userID == Firebase.auth.currentUser?.email ?: "" ){
-//                        binding.btnLike.setImageResource(R.drawable.ic_dislike)
-//                    }
-//                }
-//                binding.tvLike.text = lk.getCountUser(id).toString()
-//            }
-//
-//            // Count Total Comment
-//            cm.getAll().observe(this){
-//                binding.tvTotalComment.text = cm.getCountUser(id).toString()
-//            }
-//
-//            val article = ar.get(id)
-//            if(article != null) {
-//                a = article
-//                with(binding){
-//                    tvUserEmail.text = article.ownerID
-//                    tvDate.text = SimpleDateFormat("dd-MM-yyyy").format(article.createdDate)
-//                    tvTime.text = SimpleDateFormat("hh:mm aa").format(article.createdDate)
-//                    tutorialDetailTitle.text = article.title
-//                    tutorialDetailContent.text = article.content
-//                    tutorialDetailImage.setImageBitmap(article.Image.toBitmap())
-//
+    private fun reload(id: String, isAdmin : Boolean, isDelete : Boolean) {
+        ar.getAll().observe(this){
+
+            //Count Total Like
+            lk.getAll().observe(this){
+                for (userLike in it){
+                    if(userLike.articleID == id && userLike.userID == Firebase.auth.currentUser?.email ?: "" ){
+                        binding.btnLike.setImageResource(R.drawable.ic_dislike)
+                    }
+                }
+                binding.tvLike.text = lk.getCountUser(id).toString()
+            }
+
+            // Count Total Comment
+            cm.getAll().observe(this){
+                binding.tvTotalComment.text = cm.getCountUser(id).toString()
+            }
+
+            val tutorial = ar.get(id)
+            if(tutorial != null) {
+                a = tutorial
+                with(binding){
+                    tvUserEmail.text = tutorial.ownerID
+                    tvDate.text = SimpleDateFormat("dd-MM-yyyy").format(tutorial.createdDate)
+                    tvTime.text = SimpleDateFormat("hh:mm aa").format(tutorial.createdDate)
+                    tutorialDetailTitle.text = tutorial.title
+                    tutorialDetailContent.text = tutorial.content
+                    tutorialDetailImage.setImageBitmap(tutorial.Image.toBitmap())
+
 //                    ur.getAll().observe(this@TutorialDetailActivity){
 //                        owner = ur.get(article.ownerID)!!
 //                    }
-//
-//                    if(article.status == "Deleted" && !isAdmin) {
-//                        val intent = Intent(this@TutorialDetailActivity, MainActivity::class.java)
-//                        startActivity(intent)
-//                    }
-//
-//
+
 //                    if(isAdmin){
 //
 //                        btnComment.visibility = View.GONE
@@ -226,25 +220,25 @@ class TutorialDetailActivity : AppCompatActivity() {
 //                    }else{
 //                        btnDeleteTutorialAdmin.visibility = View.GONE
 //                        btnCancelDeleteAdmin.visibility = View.GONE
-////                        btnComment.visibility = View.VISIBLE
-////                        btnLike.visibility = View.VISIBLE
+//                        btnComment.visibility = View.VISIBLE
+//                        btnLike.visibility = View.VISIBLE
 //                    }
-//
-//                }
-//            }else{
-//                val intent = Intent(this@TutorialDetailActivity,MainActivity::class.java)
-//                startActivity(intent)
-//            }
-//        }
-//
-//    }
 
-//    override fun onBackPressed(){
-//        if(from == "Main"){
-//            val setIntent = Intent(this, MainActivity::class.java)
-//            startActivity(setIntent)
-//        }else{
-//            finish()
-//        }
-//    }
+                }
+            }else{
+                val intent = Intent(this@TutorialDetailActivity,MainActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+    }
+
+    override fun onBackPressed(){
+        if(from == "Main"){
+            val setIntent = Intent(this, MainActivity::class.java)
+            startActivity(setIntent)
+        }else{
+            finish()
+        }
+    }
 }
