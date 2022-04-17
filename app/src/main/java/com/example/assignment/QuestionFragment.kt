@@ -57,6 +57,7 @@ class QuestionFragment : Fragment() {
         btnQuesReview.setOnClickListener {
             val intent = Intent (activity, QuestionsList::class.java)
             activity?.startActivity(intent)
+            val userid = intent.getStringExtra("userID").toString() ?: "null"
         }
 
     }
