@@ -64,7 +64,7 @@ class ProfileActivity : AppCompatActivity() {
 
         binding.saveBtn.setOnClickListener {
             validateData()
-            onBackPressed()
+
         }
 
         binding.profilepic.setOnClickListener{
@@ -79,17 +79,23 @@ class ProfileActivity : AppCompatActivity() {
         name=binding.nameEt.text.toString().trim()
         phone=binding.phoneEt.text.toString().trim()
 
-        if(name.isEmpty()||phone.isEmpty()){
+        if(name.isEmpty()){
             Toast.makeText(this,"Enter Name",Toast.LENGTH_SHORT).show()
-
+            binding.nameEt.error = "Name cannot be empty!"
+        }
+        else if(phone.isEmpty()){
+            binding.phoneEt.error="Phone cannot be empty!"
         }else{
             if(imageUri==null){
                 updateProfile("")
+                onBackPressed()
             }else{
                 uploadImage()
             }
 
         }
+
+
 
     }
 
@@ -129,7 +135,8 @@ class ProfileActivity : AppCompatActivity() {
             .updateChildren(hashmap)
             .addOnSuccessListener {
                 Toast.makeText(this,"Profile Updated",Toast.LENGTH_SHORT).show()
-
+                progressdialog.dismiss()
+                onBackPressed()
             }.addOnFailureListener { e->
                 Toast.makeText(this,"Failed to upload profile due to ${e.message}",Toast.LENGTH_SHORT).show()
 
