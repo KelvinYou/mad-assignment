@@ -1,10 +1,12 @@
 package com.example.assignment
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.assignment.AnswerQuestions
+import com.example.assignment.Questions
 import com.google.firebase.database.*
 
 class QuestionsList : AppCompatActivity() {
@@ -23,7 +25,6 @@ class QuestionsList : AppCompatActivity() {
 
         quesArrayList = arrayListOf<Questions>()
         getQuesData()
-
     }
 
     private fun getQuesData() {
@@ -40,7 +41,15 @@ class QuestionsList : AppCompatActivity() {
                         quesArrayList.add(ques!!)
                     }
 
-                    quesRecycleView.adapter = QuestionListAdapter(quesArrayList)
+                    var adapter = QuestionListAdapter(quesArrayList)
+                    quesRecycleView.adapter = adapter
+                    adapter.setOnClickListener(object : QuestionListAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+                            val intent = Intent(this@QuestionsList, AnswerQuestions::class.java)
+                            this@QuestionsList.startActivity(intent)
+                        }
+
+                    })
 
                 }
             }
@@ -51,5 +60,6 @@ class QuestionsList : AppCompatActivity() {
 
 
         })
+
     }
 }
