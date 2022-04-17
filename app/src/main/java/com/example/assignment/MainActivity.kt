@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private val profilefragment= ProfileFragment()
     private val questionfragment= QuestionFragment()
     private val homefragment=HomeFragment()
-    private val commentfragment=CommentFragment()
+    private val answerfragment=AnswerFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.ic_home ->replacefragement(homefragment)
                 R.id.ic_question ->replacefragement(questionfragment)
                 R.id.ic_profile ->replacefragement(profilefragment)
-                R.id.ic_answer ->replacefragement(commentfragment)
+                R.id.ic_answer ->replacefragement(answerfragment)
             }
             true
         }
