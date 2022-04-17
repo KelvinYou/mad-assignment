@@ -59,7 +59,7 @@ class SearchTutorialAdapter (private val tutorialList: List<Tutorial>?) : Recycl
 
 
             holder.title.text = currentPosition.title
-            holder.type.text = "Article"
+            holder.type.text = "Tutorial"
             holder.id.text = currentPosition.id
         }
 

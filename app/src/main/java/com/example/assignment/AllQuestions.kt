@@ -3,19 +3,14 @@ package com.example.assignment
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.AnswerQuestions
 import com.example.assignment.Questions
-import com.example.assignment.databinding.FragmentHomeBinding
-import com.example.assignment.models.TutorialViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class AllQuestions : AppCompatActivity() {
-    lateinit var binding: FragmentHomeBinding
-    val tr : TutorialViewModel by activityViewModels()
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var database : DatabaseReference
@@ -25,6 +20,7 @@ class AllQuestions : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_questions_list)
+        firebaseAuth = FirebaseAuth.getInstance()
 
         quesRecycleView = findViewById(R.id.questionsList)
         quesRecycleView.layoutManager = LinearLayoutManager(this)
