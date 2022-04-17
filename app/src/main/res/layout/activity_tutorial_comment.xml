@@ -14,7 +14,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/tutorialComment"
                 android:layout_width="381dp"
-                android:layout_height="602dp"
+                android:layout_height="500dp"
                 android:layout_marginStart="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginBottom="20dp"
