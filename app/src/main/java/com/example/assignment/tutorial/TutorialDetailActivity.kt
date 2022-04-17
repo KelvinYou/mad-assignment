@@ -1,6 +1,7 @@
 package com.example.assignment.tutorial
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -66,7 +67,7 @@ class TutorialDetailActivity : AppCompatActivity() {
         return true
     }
 
-//    private fun shareArticle() {
+//    private fun shareTutorial() {
 //
 //        val link = generateLink()
 //
@@ -79,7 +80,7 @@ class TutorialDetailActivity : AppCompatActivity() {
 //            shareDialog.show(linkContent)
 //        }
 //    }
-
+//
 //    private fun generateLink(): Uri {
 //        val dynamicLink = Firebase.dynamicLinks.dynamicLink {
 //            link = Uri.parse("https://www.agmo.com/?type=Article&id=${a.id}")
