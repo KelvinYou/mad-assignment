@@ -7,10 +7,6 @@ import androidx.activity.viewModels
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.assignment.MainActivity
 import com.example.assignment.R
 import com.example.assignment.data.Tutorial
@@ -46,25 +42,23 @@ class TutorialDetailActivity : AppCompatActivity() {
 //
         val id = intent.getStringExtra("id") ?: ""
         val isAdmin = intent.getBooleanExtra("isAdmin",false)
-        val isDelete = intent.getBooleanExtra("isDelete",false)
-//        from = intent.getStringExtra("fromActivity") ?: ""
+        from = intent.getStringExtra("fromActivity") ?: ""
 
 //        callbackManager = CallbackManager.Factory.create()
 //        shareDialog = ShareDialog(this)
-
 
         binding.btnLike.setOnClickListener { like(id) }
         binding.btnComment.setOnClickListener { comment(id) }
 //        binding.btnDeleteTutorialAdmin.setOnClickListener { delete() }
 //        binding.btnCancelDeleteAdmin.setOnClickListener { cancelDelete() }
-//        binding.btnShareTutorial.setOnClickListener { shareArticle() }
+//        binding.btnShareTutorial.setOnClickListener { shareTutorial() }
 //
 //        val actionbar = supportActionBar
 //        actionbar!!.title = "Tutorial Detail"
 //        actionbar.setDisplayHomeAsUpEnabled(true)
 //        actionbar.setDisplayHomeAsUpEnabled(true)
 
-        reload(id, isAdmin,isDelete)
+        reload(id, isAdmin)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -113,7 +107,6 @@ class TutorialDetailActivity : AppCompatActivity() {
 
         val currentDate = Date()
         val like = TutorialLike (
-//            id = Firebase.auth.currentUser?.email ?: "",
             date = currentDate,
             tutorialID = id,
             userID = Firebase.auth.currentUser?.email ?: ""
@@ -171,7 +164,7 @@ class TutorialDetailActivity : AppCompatActivity() {
 //        finish()
 //    }
 
-    private fun reload(id: String, isAdmin : Boolean, isDelete : Boolean) {
+    private fun reload(id: String, isAdmin : Boolean) {
         ar.getAll().observe(this){
 
             //Count Total Like
@@ -209,14 +202,6 @@ class TutorialDetailActivity : AppCompatActivity() {
 //                        btnComment.visibility = View.GONE
 //                        btnLike.visibility = View.GONE
 //                        btnShareTutorial.visibility = View.GONE
-//
-//                        if(isDelete){
-//                            btnDeleteTutorialAdmin.visibility = View.VISIBLE
-//                            btnCancelDeleteAdmin.visibility = View.GONE
-//                        }else{
-//                            btnDeleteTutorialAdmin.visibility = View.GONE
-//                            btnCancelDeleteAdmin.visibility = View.VISIBLE
-//                        }
 //
 //                    }else{
 //                        btnDeleteTutorialAdmin.visibility = View.GONE

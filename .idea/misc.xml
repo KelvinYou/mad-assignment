@@ -3,26 +3,49 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/blackborder.xml" value="0.2045" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/border.xml" value="0.238" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/borderradius.xml" value="0.2045" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/greybackground.xml" value="0.2045" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/greyframe.xml" value="0.2045" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_answer.xml" value="0.2045" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_baseline_build_24.xml" value="0.1415" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.2045" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1415" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_baseline_question_mark_24.xml" value="0.1415" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_comment.xml" value="0.2045" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_dislike.xml" value="0.2045" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_home.xml" value="0.2045" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_like.xml" value="0.2045" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_profile.xml" value="0.2045" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_question.xml" value="0.2045" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_share.xml" value="0.2045" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/ic_up.xml" value="0.2045" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/my_border.xml" value="0.2045" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/drawable/search_background.xml" value="0.238" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/activity_add_tutorial.xml" value="0.24583333333333332" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/activity_ask_questions.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/activity_main_qn.xml" value="0.27760416666666665" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/activity_profile.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/activity_questions_list.xml" value="0.27760416666666665" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/activity_sign_up.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/activity_tutorial_detail.xml" value="0.24583333333333332" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/comment_display.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/fragment_comment.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/fragment_profile.xml" value="0.27760416666666665" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/fragment_question.xml" value="0.27760416666666665" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/fragment_search_tutorial.xml" value="0.38333333333333336" />
         <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/ques_item.xml" value="0.27760416666666665" />
-        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/tutorial_comment.xml" value="0.67" />
-        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/tutorial_list.xml" value="0.33" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/search_card_item.xml" value="0.38333333333333336" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/tutorial_comment.xml" value="0.5" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/layout/tutorial_list.xml" value="0.25" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/Assignment/app/src/main/res/menu/bottom_menu.xml" value="0.1" />
         <entry key="..\:/Users/The_c/Desktop/set8ChanZiCHeng/Assignment/app/src/main/res/drawable/blackborder.xml" value="0.1035" />
         <entry key="..\:/Users/The_c/Desktop/set8ChanZiCHeng/Assignment/app/src/main/res/drawable/ic_profile.xml" value="0.1875" />
         <entry key="..\:/Users/The_c/Desktop/set8ChanZiCHeng/Assignment/app/src/main/res/drawable/my_border.xml" value="0.2595" />
         <entry key="..\:/Users/The_c/Desktop/set8ChanZiCHeng/Assignment/app/src/main/res/layout/activity_change_password.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/The_c/Desktop/set8ChanZiCHeng/Assignment/app/src/main/res/layout/activity_forgot_password.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/The_c/Desktop/set8ChanZiCHeng/Assignment/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/The_c/Desktop/set8ChanZiCHeng/Assignment/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/The_c/Desktop/set8ChanZiCHeng/Assignment/app/src/main/res/layout/activity_main_qn.xml" value="0.25416666666666665" />
@@ -37,6 +60,7 @@
         <entry key="..\:/Users/The_c/Desktop/set8ChanZiCHeng/Assignment/app/src/main/res/layout/test.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/The_c/Desktop/set8ChanZiCHeng/Assignment/app/src/main/res/menu/bottom_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/The_c/Desktop/set8ChanZiCHeng/Assignment/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/joseph/Desktop/Assignment/app/src/main/res/layout/activity_answer_questions.xml" value="0.3625" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssgnWork/Assignment/app/src/main/res/drawable-v24/blackBorder.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssgnWork/Assignment/app/src/main/res/drawable/back.xml" value="0.2105" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MobileAssgnWork/Assignment/app/src/main/res/drawable/blackborder.xml" value="0.1" />
@@ -61,6 +85,7 @@
         <entry key="..\:/Users/joseph/Desktop/Assignment/app/src/main/res/layout/fragment_comment.xml" value="0.1" />
         <entry key="..\:/Users/joseph/Desktop/Assignment/app/src/main/res/layout/fragment_profile.xml" value="0.358695652173913" />
         <entry key="..\:/Users/joseph/Desktop/Assignment/app/src/main/res/layout/fragment_question.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/joseph/Desktop/Assignment/app/src/main/res/layout/ques_item.xml" value="0.22" />
         <entry key="..\:/Users/joseph/Desktop/mobile assignment/app/src/main/res/layout/activity_add_tutorial.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/joseph/Desktop/mobile assignment/app/src/main/res/layout/activity_ask_question.xml" value="0.22" />
         <entry key="..\:/Users/joseph/Desktop/mobile assignment/app/src/main/res/layout/activity_ask_questions.xml" value="0.33" />
