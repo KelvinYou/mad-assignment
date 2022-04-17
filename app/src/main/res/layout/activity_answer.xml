@@ -47,7 +47,7 @@
         tools:listitem="@layout/comment_display" />
 
     <TextView
-        android:id="@+id/tvQuestoin"
+        android:id="@+id/tvQuestion"
         android:layout_width="376dp"
         android:layout_height="76dp"
         android:layout_marginTop="16dp"

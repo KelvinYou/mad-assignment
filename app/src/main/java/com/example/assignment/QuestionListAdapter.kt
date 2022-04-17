@@ -15,6 +15,7 @@ class QuestionListAdapter(private val quesList : ArrayList<Questions>) : Recycle
 
     interface onItemClickListener{
         fun onItemClick(position : Int)
+        fun onItemClick(position: Int, quesTitle: String)
     }
 
     fun setOnClickListener(listener : onItemClickListener){
@@ -34,7 +35,6 @@ class QuestionListAdapter(private val quesList : ArrayList<Questions>) : Recycle
         holder.tvTitle.text = currentitem.askTitle
         holder.tvBody.text = currentitem.askBody
         holder.tvTags.text = currentitem.askTags
-
     }
 
     override fun getItemCount(): Int {
@@ -50,7 +50,7 @@ class QuestionListAdapter(private val quesList : ArrayList<Questions>) : Recycle
 
         init{
             itemView.setOnClickListener {
-                listener.onItemClick(adapterPosition)
+                listener.onItemClick(adapterPosition, tvTitle.text.toString())
             }
         }
 

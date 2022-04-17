@@ -51,6 +51,10 @@ class QuestionsList : AppCompatActivity() {
                             this@QuestionsList.startActivity(intent)
                         }
 
+                        override fun onItemClick(position: Int, quesTitle: String) {
+                            TODO("Not yet implemented")
+                        }
+
                     })
 
                 }

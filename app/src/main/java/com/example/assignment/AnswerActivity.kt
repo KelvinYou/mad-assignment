@@ -34,6 +34,7 @@ class AnswerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityAnswerBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         firebaseAuth = FirebaseAuth.getInstance()
 
         //layoutManager = LinearLayoutManager(this)
@@ -75,7 +76,7 @@ class AnswerActivity : AppCompatActivity() {
             var ansComment = answerComment.text.toString()
             var ansDate: String = formatedDate
 
-            realtimeDB.child(username).setValue(Comment(ansQuestionTitle,ansComment, ansDate, username))
+            realtimeDB.child(ansDate).setValue(Comment(ansQuestionTitle,ansComment, ansDate, username))
         }
     }
 
