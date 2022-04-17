@@ -54,12 +54,14 @@ class QuestionsList : AppCompatActivity() {
                     quesRecycleView.adapter = adapter
                     adapter.setOnClickListener(object : QuestionListAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
-                            val intent = Intent(this@QuestionsList, AnswerQuestions::class.java)
+                            val intent = Intent(this@QuestionsList, AnswerActivity::class.java)
                             this@QuestionsList.startActivity(intent)
                         }
 
                         override fun onItemClick(position: Int, quesTitle: String) {
-                            TODO("Not yet implemented")
+                            val intent = Intent(this@QuestionsList, AnswerActivity::class.java)
+                                .putExtra("quesTitle", quesTitle)
+                            this@QuestionsList.startActivity(intent)
                         }
 
                     })
