@@ -75,6 +75,9 @@ class AnswerActivity : AppCompatActivity() {
 
             realtimeDB.child(ansQuestionTitle).child(username).setValue(Comment(ansQuestionTitle,ansComment, ansDate, username))
         }
+
+        commentArrayList = arrayListOf<Comment>()
+        getCommentData()
     }
 
     private fun readUsername(id: String): String {
@@ -93,7 +96,7 @@ class AnswerActivity : AppCompatActivity() {
     private fun getCommentData() {
 
         //var database = FirebaseDatabase.getInstance().reference
-        database = FirebaseDatabase.getInstance().getReference("Answer")
+        database = FirebaseDatabase.getInstance().getReference("Answera")
 
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

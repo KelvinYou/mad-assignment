@@ -24,7 +24,7 @@
             android:id="@+id/btnAddTutorial"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="@color/secondary"
             android:text="@string/add_button"
@@ -35,16 +35,14 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tutorialList"
             android:layout_width="404dp"
-            android:layout_height="502dp"
+            android:layout_height="530dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="2dp"
-            android:layout_marginBottom="155dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnAddTutorial"
-            app:layout_constraintVertical_bias="0.0"
             tools:listitem="@layout/tutorial_list" />
 
         <Button
