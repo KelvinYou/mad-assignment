@@ -11,6 +11,11 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.assignment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_search_tutorial" />
+    <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.assignment.ProfileFragment"
         android:label="fragment_profile"

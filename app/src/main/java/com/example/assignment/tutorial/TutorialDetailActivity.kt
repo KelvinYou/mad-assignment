@@ -113,6 +113,7 @@ class TutorialDetailActivity : AppCompatActivity() {
 
         val currentDate = Date()
         val like = TutorialLike (
+//            id = Firebase.auth.currentUser?.email ?: "",
             date = currentDate,
             tutorialID = id,
             userID = Firebase.auth.currentUser?.email ?: ""

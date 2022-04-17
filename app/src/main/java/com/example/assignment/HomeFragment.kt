@@ -48,6 +48,11 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        binding.btnSearchTutorial.setOnClickListener{
+            val intent = Intent(activity, SearchTutorialFragment::class.java)
+            startActivity(intent)
+        }
+
         binding.btnSortDate.setOnClickListener{ sort("createdDate") }
 
         return binding.root
