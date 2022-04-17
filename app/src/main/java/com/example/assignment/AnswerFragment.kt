@@ -22,7 +22,8 @@ class AnswerFragment : Fragment() {
         //binding = DataBindingUtil.inflate(inflater,R.layout.fragment_answer, container, false)
 
         binding.btnViewAllQuestion.setOnClickListener(){
-
+            val intent = Intent (activity, AllQuestions::class.java)
+            activity?.startActivity(intent)
         }
 
         binding.btnYourQuestion.setOnClickListener(){

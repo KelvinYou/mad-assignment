@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -63,7 +64,7 @@ class ProfileActivity : AppCompatActivity() {
 
         binding.saveBtn.setOnClickListener {
             validateData()
-            onBackPressed()
+
         }
 
         binding.profilepic.setOnClickListener{
@@ -80,15 +81,21 @@ class ProfileActivity : AppCompatActivity() {
 
         if(name.isEmpty()){
             Toast.makeText(this,"Enter Name",Toast.LENGTH_SHORT).show()
-
+            binding.nameEt.error = "Name cannot be empty!"
+        }
+        else if(phone.isEmpty()){
+            binding.phoneEt.error="Phone cannot be empty!"
         }else{
             if(imageUri==null){
                 updateProfile("")
+                onBackPressed()
             }else{
                 uploadImage()
             }
 
         }
+
+
 
     }
 
@@ -128,7 +135,8 @@ class ProfileActivity : AppCompatActivity() {
             .updateChildren(hashmap)
             .addOnSuccessListener {
                 Toast.makeText(this,"Profile Updated",Toast.LENGTH_SHORT).show()
-
+                progressdialog.dismiss()
+                onBackPressed()
             }.addOnFailureListener { e->
                 Toast.makeText(this,"Failed to upload profile due to ${e.message}",Toast.LENGTH_SHORT).show()
 
