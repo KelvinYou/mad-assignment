@@ -27,10 +27,12 @@ class QuestionsList : AppCompatActivity() {
         quesRecycleView.setHasFixedSize(true)
 
         quesArrayList = arrayListOf<Questions>()
-        getQuesData()
+
+        var userid = firebaseAuth.uid!!.toString()
+        getQuesData(userid)
     }
 
-    private fun getQuesData() {
+    private fun getQuesData(userid: String) {
 
         database = FirebaseDatabase.getInstance().getReference("Questions")
 
@@ -40,7 +42,12 @@ class QuestionsList : AppCompatActivity() {
                     for(quesSnapshot in snapshot.children){
 
                         val ques = quesSnapshot.getValue(Questions::class.java)
-                        quesArrayList.add(ques!!)
+                        if (ques != null) {
+                            if(ques.userID == userid) {
+
+                                quesArrayList.add(ques!!)
+                            }
+                        }
                     }
 
                     var adapter = QuestionListAdapter(quesArrayList)

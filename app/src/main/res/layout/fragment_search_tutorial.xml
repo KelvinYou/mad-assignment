@@ -26,19 +26,20 @@
             <View
                 android:id="@+id/divider2"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:background="?android:attr/listDivider" />
+                android:background="@color/primary"
+                android:layout_height="70dp" />
 
             <SearchView
                 android:id="@+id/svSearchTutorial"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/divider2"
                 android:layout_alignParentTop="true"
-                android:layout_margin="5dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="14dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/search_background"
                 android:iconifiedByDefault="false" />
 

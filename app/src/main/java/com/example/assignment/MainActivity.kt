@@ -12,6 +12,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.assignment.databinding.ActivityMainBinding
+import com.example.assignment.tutorial.SearchTutorialFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private val profilefragment= ProfileFragment()
     private val questionfragment= QuestionFragment()
     private val homefragment=HomeFragment()
+    private val searchfragment= SearchTutorialFragment()
     private val answerfragment=AnswerFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         bottom_navigation.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.ic_home ->replacefragement(homefragment)
+                R.id.ic_search ->replacefragement(searchfragment)
                 R.id.ic_question ->replacefragement(questionfragment)
                 R.id.ic_profile ->replacefragement(profilefragment)
                 R.id.ic_answer ->replacefragement(answerfragment)

@@ -27,29 +27,40 @@
 
             <EditText
                 android:id="@+id/addComment"
-                android:layout_width="257dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:gravity="start|top"
                 android:hint="@string/comment_here"
                 android:inputType="textMultiLine"
                 android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="@+id/btnSubmitComment"
+                app:layout_constraintEnd_toStartOf="@+id/btnSubmitComment"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tutorialComment"
+                app:layout_constraintTop_toTopOf="@+id/btnSubmitComment"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <Button
+<!--            <Button-->
+<!--                android:id="@+id/btnSubmitComment"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:text="@string/submit"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/addComment"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/addComment"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/addComment" />-->
+
+            <ImageButton
                 android:id="@+id/btnSubmitComment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="@string/submit"
-                app:layout_constraintBottom_toBottomOf="@+id/addComment"
-                app:layout_constraintStart_toEndOf="@+id/addComment"
-                app:layout_constraintTop_toTopOf="@+id/addComment" />
-
+                android:src="@android:drawable/ic_menu_send"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.954"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.976" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

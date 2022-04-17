@@ -23,9 +23,10 @@ class AskQuestions : AppCompatActivity() {
             var askTitle = editTextTitle.text.toString()
             var askBody = editTextBody.text.toString()
             var askTags = editTextTags.text.toString()
+            var userID =""
 
             //database.push().setValue(Ask(askTitle,askBody,askTags))
-            database.child(askTitle.toString()).setValue(Ask(askTitle,askBody,askTags))
+            database.child(askTitle.toString()).setValue(Ask(userID,askTitle,askBody,askTags))
         }
 
         val btnQuesList: Button = findViewById(R.id.btnQuesReview)
