@@ -18,7 +18,7 @@ class QuestionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_question, container, false).apply {
 
-        var firebaseAuth = FirebaseAuth.getInstance()
+        //var firebaseAuth = FirebaseAuth.getInstance()
 
         var realtimeDB = FirebaseDatabase.getInstance().getReference("Questions")
 
@@ -32,10 +32,10 @@ class QuestionFragment : Fragment() {
             var title = quesInputTitle.text.toString()
             var body = quesInputBody.text.toString()
             var tags = quesInputTags.text.toString()
-            var id = firebaseAuth.uid!!.toString()
+            //var id = firebaseAuth.uid!!.toString()
 
 
-            realtimeDB.child(id.toString()).setValue(Ask(title, body, tags))
+            realtimeDB.child(title.toString()).setValue(Ask(title, body, tags))
         }
 
         btnQuesReview.setOnClickListener {
