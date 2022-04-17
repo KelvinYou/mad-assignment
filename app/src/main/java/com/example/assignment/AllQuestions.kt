@@ -47,12 +47,12 @@ class AllQuestions : AppCompatActivity() {
                     quesRecycleView.adapter = adapter
                     adapter.setOnClickListener(object : QuestionListAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
-                            val intent = Intent(this@AllQuestions, AnswerQuestions::class.java)
+                            val intent = Intent(this@AllQuestions, AnswerActivity::class.java)
                             this@AllQuestions.startActivity(intent)
                         }
 
                         override fun onItemClick(position: Int, quesTitle: String) {
-                            val intent = Intent(this@AllQuestions, AnswerQuestions::class.java)
+                            val intent = Intent(this@AllQuestions, AnswerActivity::class.java)
                                 .putExtra("quesTitle", quesTitle)
                             this@AllQuestions.startActivity(intent)
                         }

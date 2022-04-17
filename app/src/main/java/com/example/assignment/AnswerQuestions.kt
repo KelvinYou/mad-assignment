@@ -71,6 +71,12 @@ class AnswerQuestions : AppCompatActivity() {
             var ansDate: String = formatedDate
 
             realtimeDB.child(ansDate).setValue(Comment(ansQuestionTitle,ansComment, ansDate, username))
+
+            finish()
+            overridePendingTransition(0, 0)
+            startActivity(intent)
+            overridePendingTransition(0, 0)
+
         }
     }
 
