@@ -34,6 +34,7 @@ class AnswerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityAnswerBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        firebaseAuth = FirebaseAuth.getInstance()
 
         //layoutManager = LinearLayoutManager(this)
         //commentDisplay.layoutManager = layoutManager
@@ -41,11 +42,11 @@ class AnswerActivity : AppCompatActivity() {
         //commentDisplay.adapter = adapter
 
 
-        //commentRecycleView = binding.commentDisplay
-        //commentRecycleView.layoutManager = LinearLayoutManager(this)
-        //commentRecycleView.setHasFixedSize(true)
-        //commentArrayList = arrayListOf<Comment>()
-        //getCommentData()
+        commentRecycleView = binding.commentDisplay
+        commentRecycleView.layoutManager = LinearLayoutManager(this)
+        commentRecycleView.setHasFixedSize(true)
+        commentArrayList = arrayListOf<Comment>()
+        getCommentData()
 
         firebaseAuth= FirebaseAuth.getInstance()
         val id = firebaseAuth.uid!!
