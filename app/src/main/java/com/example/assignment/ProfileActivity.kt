@@ -149,7 +149,7 @@ class ProfileActivity : AppCompatActivity() {
                     val uid="${snapshot.child("uid").value}"
 
                     binding.nameEt.setText(name)
-                    binding.emailEt.setText(email)
+
                     binding.phoneEt.setText(phone)
 
                     //set image
