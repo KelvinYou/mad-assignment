@@ -6,6 +6,10 @@
         android:title="Home"
         android:icon="@drawable/ic_home" />
     <item
+        android:id="@+id/ic_search"
+        android:title="Search"
+        android:icon="@drawable/ic_search" />
+    <item
         android:id="@+id/ic_question"
         android:title="Question"
         android:icon="@drawable/ic_question" />
