@@ -51,6 +51,12 @@ class AllQuestions : AppCompatActivity() {
                             this@AllQuestions.startActivity(intent)
                         }
 
+                        override fun onItemClick(position: Int, quesTitle: String) {
+                            val intent = Intent(this@AllQuestions, AnswerQuestions::class.java)
+                                .putExtra("quesTitle", quesTitle)
+                            this@AllQuestions.startActivity(intent)
+                        }
+
                     })
 
                 }
