@@ -9,26 +9,26 @@
         android:layout_height="match_parent"
         tools:context=".HomeFragment">
 
+        <!--        <Button-->
+<!--            android:id="@+id/btnSearchTutorial"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_marginTop="48dp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:backgroundTint="@color/orange_700"-->
+<!--            android:text="@string/search"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
         <Button
             android:id="@+id/btnAddTutorial"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginEnd="15dp"
-            android:backgroundTint="@color/orange_700"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/secondary"
             android:text="@string/add_button"
             android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="@+id/btnSearchTutorial"
-            app:layout_constraintEnd_toStartOf="@+id/btnSearchTutorial"
-            app:layout_constraintTop_toTopOf="@+id/btnSearchTutorial" />
-
-        <Button
-            android:id="@+id/btnSearchTutorial"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="20dp"
-            android:backgroundTint="@color/orange_700"
-            android:text="@string/search"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,7 +36,7 @@
             android:id="@+id/tutorialList"
             android:layout_width="404dp"
             android:layout_height="502dp"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="2dp"
             android:layout_marginBottom="155dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginEnd="15dp"
-            android:backgroundTint="@color/orange_700"
+            android:backgroundTint="@color/secondary"
             android:text="Sort by date"
             app:layout_constraintBottom_toBottomOf="@+id/btnAddTutorial"
             app:layout_constraintEnd_toStartOf="@+id/btnAddTutorial"
