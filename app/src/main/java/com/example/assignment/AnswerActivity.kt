@@ -9,8 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.assignment.databinding.ActivityAnswerBinding
 import com.example.assignment.databinding.FragmentCommentBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -18,28 +20,28 @@ import kotlinx.android.synthetic.main.activity_main_qn.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class CommentFragment : Fragment() {
+class AnswerActivity : AppCompatActivity() {
     //private var layoutManager: RecyclerView.LayoutManager? = null
-   // private var adapter: RecyclerView.Adapter<CommentListAdapter.ViewHolder>? = null
+    // private var adapter: RecyclerView.Adapter<CommentListAdapter.ViewHolder>? = null
     private lateinit var database : DatabaseReference
     private lateinit var commentArrayList: ArrayList<Comment>
     private lateinit var commentRecycleView: RecyclerView
     private lateinit var firebaseAuth: FirebaseAuth
-    private var _binding: FragmentCommentBinding? =null
-    private val binding get()=_binding!!
+    private lateinit var binding: ActivityAnswerBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-       // layoutManager = LinearLayoutManager(activity)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding= ActivityAnswerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        // layoutManager = LinearLayoutManager(activity)
 
-       // commentRecyclerView.LayoutManager = layoutManager
+        // commentRecyclerView.LayoutManager = layoutManager
 
         //adapter = CommentListAdapter()
         //recyclerView.adapter = adapter
 
-        _binding= FragmentCommentBinding.inflate(inflater,container,false)
-
         commentRecycleView = binding.commentDisplay
-        commentRecycleView.layoutManager = LinearLayoutManager(activity)
+        commentRecycleView.layoutManager = LinearLayoutManager(this)
         commentRecycleView.setHasFixedSize(true)
 
         firebaseAuth= FirebaseAuth.getInstance()
@@ -73,8 +75,6 @@ class CommentFragment : Fragment() {
 
             realtimeDB.child(ansQuestionTitle).child(username).setValue(Comment(ansQuestionTitle,ansComment, ansDate, username))
         }
-
-        return binding.root
     }
 
     private fun readUsername(id: String): String {
@@ -108,7 +108,8 @@ class CommentFragment : Fragment() {
                     commentRecycleView.adapter = adapter
                     adapter.setOnItemClickListener(object : CommentListAdapter.onItemClickedListener{
                         override fun onItemClick(position: Int) {
-                            TODO("Not yet implemented")
+                            val intent = Intent(this@AnswerActivity, AnswerQuestions::class.java)
+                            this@AnswerActivity.startActivity(intent)
                         }
 
                     })

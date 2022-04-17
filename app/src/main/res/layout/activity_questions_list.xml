@@ -8,8 +8,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/questionsList"
-        android:layout_width="404dp"
-        android:layout_height="576dp"
+        android:layout_width="413dp"
+        android:layout_height="555dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/reviewQuestionsHeader"
         tools:layout_editor_absoluteX="0dp"
@@ -17,12 +17,15 @@
 
     <TextView
         android:id="@+id/reviewQuestionsHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_width="177dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Your Questions"
-        android:textSize="24sp"
+        android:background="@drawable/custom_input"
+        android:text="Posted Questions"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

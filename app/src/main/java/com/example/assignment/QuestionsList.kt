@@ -7,10 +7,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.AnswerQuestions
 import com.example.assignment.Questions
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class QuestionsList : AppCompatActivity() {
 
+    private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var database : DatabaseReference
     private lateinit var quesRecycleView: RecyclerView
     private lateinit var quesArrayList: ArrayList<Questions>
@@ -29,7 +31,6 @@ class QuestionsList : AppCompatActivity() {
 
     private fun getQuesData() {
 
-        //var database = FirebaseDatabase.getInstance().reference
         database = FirebaseDatabase.getInstance().getReference("Questions")
 
         database.addValueEventListener(object : ValueEventListener{

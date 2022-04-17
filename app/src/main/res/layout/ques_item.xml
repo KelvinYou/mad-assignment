@@ -21,12 +21,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="72dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_input"
                 android:text="Title : "
+                android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="26sp"
-                android:textStyle="bold"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvTitle"
@@ -35,7 +37,7 @@
                 android:layout_marginStart="8dp"
                 android:text="How to Code in Android Studio?"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -46,12 +48,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="72dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_input"
                 android:text="Body : "
+                android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="26sp"
-                android:textStyle="bold"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvBody"
@@ -71,12 +75,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="72dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_input"
                 android:text="Tags : "
+                android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="26sp"
-                android:textStyle="bold"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvTags"

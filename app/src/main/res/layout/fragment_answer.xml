@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AnswerFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <Button
+        android:id="@+id/btnViewAllQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Question"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.234" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btnYourQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="Your Question"
+        app:layout_constraintEnd_toEndOf="@+id/btnViewAllQuestion"
+        app:layout_constraintStart_toStartOf="@+id/btnViewAllQuestion"
+        app:layout_constraintTop_toBottomOf="@+id/btnViewAllQuestion" />
+
+    <Button
+        android:id="@+id/btnTestComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="216dp"
+        android:text="Comment(Test)"
+        app:layout_constraintEnd_toEndOf="@+id/btnViewAllQuestion"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btnViewAllQuestion"
+        app:layout_constraintTop_toBottomOf="@+id/btnViewAllQuestion" />
+</androidx.constraintlayout.widget.ConstraintLayout>
