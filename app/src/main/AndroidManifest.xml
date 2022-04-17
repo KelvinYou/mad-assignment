@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Assignment">
         <activity
+            android:name=".AllQuestions"
+            android:exported="false" />
+        <activity
             android:name=".AnswerActivity"
             android:exported="false" />
         <activity

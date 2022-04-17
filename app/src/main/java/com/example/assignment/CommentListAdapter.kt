@@ -13,7 +13,7 @@ import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 
 class CommentListAdapter (private val commentList: List<Comment>): RecyclerView.Adapter<CommentListAdapter.ViewHolder>() {
-    var realtimeCommentDB = FirebaseDatabase.getInstance().getReference("Answer")
+    //var realtimeCommentDB = FirebaseDatabase.getInstance().getReference("Answer")
 
     private lateinit var mListener : onItemClickedListener
 

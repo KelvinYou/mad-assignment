@@ -10,7 +10,7 @@ import com.example.assignment.Questions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
-class QuestionsList : AppCompatActivity() {
+class AllQuestions : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var database : DatabaseReference
@@ -20,7 +20,7 @@ class QuestionsList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_questions_list)
-        firebaseAuth= FirebaseAuth.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
 
         quesRecycleView = findViewById(R.id.questionsList)
         quesRecycleView.layoutManager = LinearLayoutManager(this)
@@ -47,12 +47,14 @@ class QuestionsList : AppCompatActivity() {
                     quesRecycleView.adapter = adapter
                     adapter.setOnClickListener(object : QuestionListAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
-                            val intent = Intent(this@QuestionsList, AnswerQuestions::class.java)
-                            this@QuestionsList.startActivity(intent)
+                            val intent = Intent(this@AllQuestions, AnswerQuestions::class.java)
+                            this@AllQuestions.startActivity(intent)
                         }
 
                         override fun onItemClick(position: Int, quesTitle: String) {
-                            TODO("Not yet implemented")
+                            val intent = Intent(this@AllQuestions, AnswerQuestions::class.java)
+                                .putExtra("quesTitle", quesTitle)
+                            this@AllQuestions.startActivity(intent)
                         }
 
                     })

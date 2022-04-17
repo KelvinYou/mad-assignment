@@ -48,12 +48,12 @@ class TutorialCommentActivity : AppCompatActivity() {
             }
         }
 
-//        val adapter = TutorialCommentAdapter(){holder, tutorialComment ->
-//            val u = Firebase.auth.currentUser?.email ?: ""
-//            if (u != null) {
+        val adapter = TutorialCommentAdapter(){holder, tutorialComment ->
+            val u = Firebase.auth.currentUser?.email ?: ""
+            if (u != null) {
 //                holder.tutorialUserImage.setImageBitmap(u.image.toBitmap())
-//            }
-//        }
+            }
+        }
 
         //Recycler View
         val recyclerView = binding.tutorialComment
@@ -63,8 +63,8 @@ class TutorialCommentActivity : AppCompatActivity() {
 
             newList = newList.sortedBy { c -> c.date }
 
-//            adapter.submitList(newList)
-//            recyclerView.adapter = adapter
+            adapter.submitList(newList)
+            recyclerView.adapter = adapter
             recyclerView.setHasFixedSize(true)
         }
 
@@ -100,15 +100,15 @@ class TutorialCommentActivity : AppCompatActivity() {
 
         cm.insert(comment)
         binding.addComment.text.clear()
-//        KToasty.success(this,"Post comment successfully.", Toast.LENGTH_LONG).show()
-//        closeKeyBoard()
-        val recyclerView = binding.tutorialComment
-        cm.getAll().observe(this) { tutorialComment ->
-            var newList = tutorialComment.filter { c -> c.tutorialID == id}
-
-            newList = newList.sortedBy { c -> c.date }
-            recyclerView.smoothScrollToPosition(newList.size - 1);
-        }
+////        KToasty.success(this,"Post comment successfully.", Toast.LENGTH_LONG).show()
+        closeKeyBoard()
+//        val recyclerView = binding.tutorialComment
+//        cm.getAll().observe(this) { tutorialComment ->
+//            var newList = tutorialComment.filter { c -> c.tutorialID == id}
+//
+//            newList = newList.sortedBy { c -> c.date }
+//            recyclerView.smoothScrollToPosition(newList.size - 1);
+//        }
 //        PushNotification(
 //            NotificationData(
 //                title = "Someone Comment on Your Tutorial",
