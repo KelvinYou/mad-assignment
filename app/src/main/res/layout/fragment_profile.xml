@@ -80,9 +80,11 @@
 
                 android:backgroundTint="@color/lightgray"
                 android:text="Change password"
-                android:textAlignment="viewStart"
+                android:textAlignment="center"
+
                 android:textColor="@color/gray"
-                android:textSize="13sp" />
+
+                android:textSize="15sp" />
 
 
             <TableRow

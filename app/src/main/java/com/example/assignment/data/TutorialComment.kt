@@ -4,7 +4,7 @@ import com.google.firebase.firestore.DocumentId
 import java.util.*
 
 data class TutorialComment (
-//    @DocumentId
+    @DocumentId
     var id : String = "",
     var content : String = "",
     var date : Date = Date(),

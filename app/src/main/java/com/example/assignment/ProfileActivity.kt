@@ -72,9 +72,11 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private var name=""
+    private var phone=""
 
     private fun validateData() {
         name=binding.nameEt.text.toString().trim()
+        phone=binding.phoneEt.text.toString().trim()
 
         if(name.isEmpty()){
             Toast.makeText(this,"Enter Name",Toast.LENGTH_SHORT).show()
@@ -116,6 +118,7 @@ class ProfileActivity : AppCompatActivity() {
 
         val hashmap:HashMap<String, Any> = HashMap()
         hashmap["name"]="${name}"
+        hashmap["phone"]="${phone}"
         if(imageUri!=null){
             hashmap["photo"]=uploadedImageUrl
         }
@@ -146,7 +149,7 @@ class ProfileActivity : AppCompatActivity() {
                     val uid="${snapshot.child("uid").value}"
 
                     binding.nameEt.setText(name)
-                    binding.emailEt.setText(email)
+
                     binding.phoneEt.setText(phone)
 
                     //set image
@@ -182,7 +185,7 @@ class ProfileActivity : AppCompatActivity() {
     private fun showImageAttachMenu(){
         val popupMenu=PopupMenu(this,binding.profilepic)
         popupMenu.menu.add(Menu.NONE,0,0,"Camera")
-        popupMenu.menu.add(Menu.NONE,0,0,"Gallery")
+        popupMenu.menu.add(Menu.NONE,1,1,"Gallery")
         popupMenu.show()
 
         popupMenu.setOnMenuItemClickListener { item->

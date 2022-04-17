@@ -10,6 +10,17 @@
     <color name="gray">#3F3F3F</color>
     <color name="orange">#F69300</color>
     <color name="orange_700">#bf7000</color>
+    <color name="orange_500">#bf7000</color>
+    <color name="orange_200">#F99F38</color>
+
+<!-- App Color -->
+    <color name="primary">#6E6702</color>
+    <color name="secondary">#2E2300</color>
+    <color name="tertiary">#C05805</color>
+    <color name="content_primary">#ffae00</color>
+    <color name="content_secondary">#DB9501</color>
+    <color name="text_primary">#ECECEC</color>
+    <color name="text_secondary">#1C1C1C</color>
 
     <color name="lightgray">#DFDFDF</color>
     <color name="darkergray">#AFAEAE</color>

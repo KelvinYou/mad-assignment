@@ -68,6 +68,10 @@ class LoginActivity : AppCompatActivity() {
             validateData()
         }
 
+        binding.forgotpassTV.setOnClickListener{
+            startActivity(Intent(this,ForgotPassword::class.java))
+        }
+
 
     }
 
