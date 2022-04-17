@@ -10,6 +10,21 @@
     android:background="#5E5E5E"
     tools:context=".ProfileActivity">
 
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_above="@id/nameTil"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="@color/lightgray"
+        android:src="@drawable/ic_baseline_person_24"
+        android:id="@+id/profilepic"
+
+        >
+
+
+    </com.google.android.material.imageview.ShapeableImageView>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTil"
 
@@ -62,28 +77,9 @@
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/changePassword"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_below="@id/phoneTil"
-
-        android:backgroundTint="@color/lightgray"
-        android:text="Change password"
-        android:textAlignment="viewStart"
-        android:textColor="@color/gray"
-        android:textSize="13sp" />
 
 
-    <Button
-        android:id="@+id/logoutBtn"
-        android:layout_marginTop="0dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/orange"
-        android:layout_below="@id/saveBtn"
-        android:layout_centerInParent="true"
-        android:text="Logout"/>
+
 
     <Button
         android:id="@+id/cancelBtn"
@@ -91,7 +87,7 @@
         android:layout_width="175dp"
         android:layout_height="59dp"
         android:backgroundTint="@color/darkergray"
-        android:layout_below="@id/changePassword"
+        android:layout_below="@id/phoneTil"
         android:text="cancel"/>
 
     <Button
@@ -100,7 +96,7 @@
         android:layout_width="175dp"
         android:layout_height="59dp"
         android:backgroundTint="@color/orange"
-        android:layout_below="@id/changePassword"
+        android:layout_below="@id/phoneTil"
         android:layout_toRightOf="@id/cancelBtn"
         android:layout_marginLeft="20dp"
         android:text="save"/>

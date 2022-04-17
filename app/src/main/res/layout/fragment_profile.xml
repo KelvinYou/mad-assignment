@@ -19,6 +19,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_centerHorizontal="true"
+                android:background="@color/lightgray"
+                android:src="@drawable/ic_baseline_person_24"
+                android:id="@+id/profilepic"
+
+
+                >
+
+
+            </com.google.android.material.imageview.ShapeableImageView>
+
 
             <TextView
                 android:id="@+id/emailEt"
@@ -27,7 +43,7 @@
                 android:paddingTop="18dp"
                 android:paddingLeft="13dp"
 
-                android:layout_marginTop="200dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/my_border"
                 android:textSize="18sp" />

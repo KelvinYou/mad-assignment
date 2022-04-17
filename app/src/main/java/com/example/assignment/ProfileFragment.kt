@@ -10,6 +10,7 @@ import com.example.assignment.databinding.ActivityProfileBinding
 import com.example.assignment.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import android.content.Intent
+import com.bumptech.glide.Glide
 import com.google.firebase.database.*
 
 
@@ -93,6 +94,11 @@ class ProfileFragment : Fragment() {
                     binding.nameEt.text=name
                     binding.emailEt.text=email
                     binding.phoneEt.text=phone
+                    try{
+                        Glide.with(this@ProfileFragment).load(photo).placeholder(R.drawable.ic_baseline_person_24).into(binding.profilepic)
+                    }catch (e: Exception){
+
+                    }
 
 
 
