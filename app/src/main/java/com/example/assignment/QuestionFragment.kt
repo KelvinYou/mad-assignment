@@ -2,16 +2,23 @@ package com.example.assignment
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class QuestionFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.fragment_question, container, false).apply {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.fragment_question, container, false).apply {
+
+        var firebaseAuth = FirebaseAuth.getInstance()
 
         var realtimeDB = FirebaseDatabase.getInstance().getReference("Questions")
 
@@ -25,15 +32,16 @@ class QuestionFragment : Fragment() {
             var title = quesInputTitle.text.toString()
             var body = quesInputBody.text.toString()
             var tags = quesInputTags.text.toString()
+            var id = firebaseAuth.uid!!.toString()
 
-            realtimeDB.child(title.toString()).setValue(Ask(title,body,tags))
+
+            realtimeDB.child(id.toString()).setValue(Ask(title, body, tags))
         }
 
-        btnQuesReview.setOnClickListener(){
+        btnQuesReview.setOnClickListener {
             val intent = Intent (activity, QuestionsList::class.java)
             activity?.startActivity(intent)
         }
-        //return inflater.inflate(R.layout.fragment_question, container, false)
-    }
 
+    }
 }
