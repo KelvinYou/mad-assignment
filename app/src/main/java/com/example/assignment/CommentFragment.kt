@@ -8,23 +8,32 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.databinding.FragmentCommentBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_main_qn.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 class CommentFragment : Fragment() {
+    //private var layoutManager: RecyclerView.LayoutManager? = null
+   // private var adapter: RecyclerView.Adapter<CommentListAdapter.ViewHolder>? = null
     private lateinit var firebaseAuth: FirebaseAuth
     private var _binding: FragmentCommentBinding? =null
     private val binding get()=_binding!!
 
-    override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+       // layoutManager = LinearLayoutManager(activity)
 
-        ): View? {
+       // commentRecyclerView.LayoutManager = layoutManager
+
+        //adapter = CommentListAdapter()
+        //recyclerView.adapter = adapter
+
         _binding= FragmentCommentBinding.inflate(inflater,container,false)
 
         firebaseAuth= FirebaseAuth.getInstance()
