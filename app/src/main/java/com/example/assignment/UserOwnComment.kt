@@ -26,8 +26,6 @@ class UserOwnComment : AppCompatActivity() {
         binding = ActivityUserOwnCommentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        firebaseAuth = FirebaseAuth.getInstance()
-
         commentRecycleView = binding.titleCommentDisplay
         commentRecycleView.layoutManager = LinearLayoutManager(this)
         commentRecycleView.setHasFixedSize(true)
@@ -38,7 +36,8 @@ class UserOwnComment : AppCompatActivity() {
         var username: String = "hello"
         val userDB = FirebaseDatabase.getInstance().getReference("user")
         userDB.child(id).get().addOnSuccessListener {
-            username = it.child("name").value as String
+            username = "success"
+            //username = it.child("name").value as String
         }.addOnFailureListener{
             username = "fail"
         }
