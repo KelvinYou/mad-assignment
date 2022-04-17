@@ -16,20 +16,25 @@
         android:paddingBottom="10dp">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
             android:layout_marginTop="1dp"
-            android:layout_marginEnd="30dp"
             android:background="@drawable/greyframe"
             app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cardView4"
             app:layout_constraintTop_toTopOf="parent">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:rotation="180"
+                app:srcCompat="@drawable/orangetriangle" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+                android:layout_width="340dp"
                 android:layout_height="match_parent"
+                android:layout_marginStart="22dp"
                 android:background="@drawable/greyframe"
                 android:paddingBottom="3dp">
 
@@ -67,44 +72,46 @@
 
                 <TextView
                     android:id="@+id/userCommentDetail"
-                    android:layout_width="260dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="12dp"
                     android:paddingStart="3dp"
                     android:paddingEnd="3dp"
                     android:paddingBottom="8dp"
                     android:text="@string/comment"
                     android:textColor="#000000"
                     android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/commentDate" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView4"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="16dp"
-            app:cardCornerRadius="30dp"
-            app:cardElevation="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/cardViewImage"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_marginStart="2dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            app:cardCornerRadius="30dp"-->
+<!--            app:cardElevation="0dp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
 
 
-            <ImageView
-                android:id="@+id/userImage"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="#CCC"
-                android:scaleType="centerCrop"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
-        </androidx.cardview.widget.CardView>
+<!--            <ImageView-->
+<!--                android:id="@+id/userImage"-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:background="#CCC"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                tools:srcCompat="@tools:sample/avatars" />-->
+<!--        </androidx.cardview.widget.CardView>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -51,7 +51,7 @@
             android:layout_height="50dp"
             android:layout_marginEnd="15dp"
             android:backgroundTint="@color/secondary"
-            android:text="Sort by date"
+            android:text="@string/sortbydate"
             app:layout_constraintBottom_toBottomOf="@+id/btnAddTutorial"
             app:layout_constraintEnd_toStartOf="@+id/btnAddTutorial"
             app:layout_constraintTop_toTopOf="@+id/btnAddTutorial"
