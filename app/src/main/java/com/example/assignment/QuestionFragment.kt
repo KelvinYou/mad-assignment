@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -18,7 +19,7 @@ class QuestionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_question, container, false).apply {
 
-        //var firebaseAuth = FirebaseAuth.getInstance()
+        var firebaseAuth = FirebaseAuth.getInstance()
 
         var realtimeDB = FirebaseDatabase.getInstance().getReference("Questions")
 
@@ -32,10 +33,25 @@ class QuestionFragment : Fragment() {
             var title = quesInputTitle.text.toString()
             var body = quesInputBody.text.toString()
             var tags = quesInputTags.text.toString()
-            //var id = firebaseAuth.uid!!.toString()
+            var userID = firebaseAuth.uid!!.toString()
+
+            if(title.isEmpty()){
+                quesInputTitle.error = "Please enter title"
+            }
+            if(body.isEmpty()){
+                quesInputTitle.error = "Please enter body"
+            }
+            if(tags.isEmpty()){
+                quesInputTitle.error = "Please enter tags"
+            }
 
 
-            realtimeDB.child(title.toString()).setValue(Ask(title, body, tags))
+            realtimeDB.child(title.toString()).setValue(Ask(title, body, tags,userID.toString()))
+                .addOnSuccessListener {
+                Toast.makeText(activity,"Your question is posted.", Toast.LENGTH_LONG).show()
+            }.addOnFailureListener{
+                Toast.makeText(activity,"Your question is failed to post.", Toast.LENGTH_LONG).show()
+            }
         }
 
         btnQuesReview.setOnClickListener {
