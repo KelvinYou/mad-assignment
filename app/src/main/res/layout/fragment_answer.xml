@@ -19,23 +19,14 @@
         app:layout_constraintVertical_bias="0.234" />
 
     <Button
-        android:id="@+id/btnYourQuestion"
+        android:id="@+id/btnViewComments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="Your Question"
+        android:layout_marginTop="136dp"
+        android:text="View Your Comments"
         app:layout_constraintEnd_toEndOf="@+id/btnViewAllQuestion"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@+id/btnViewAllQuestion"
         app:layout_constraintTop_toBottomOf="@+id/btnViewAllQuestion" />
 
-    <Button
-        android:id="@+id/btnTestComment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
-        android:text="Comment(Test)"
-        app:layout_constraintEnd_toEndOf="@+id/btnViewAllQuestion"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/btnViewAllQuestion"
-        app:layout_constraintTop_toBottomOf="@+id/btnViewAllQuestion" />
 </androidx.constraintlayout.widget.ConstraintLayout>

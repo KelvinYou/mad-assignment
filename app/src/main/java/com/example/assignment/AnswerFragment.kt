@@ -26,12 +26,8 @@ class AnswerFragment : Fragment() {
             activity?.startActivity(intent)
         }
 
-        binding.btnYourQuestion.setOnClickListener(){
-
-        }
-
-        binding.btnTestComment.setOnClickListener(){
-            val intent = Intent (activity, AnswerActivity::class.java)
+        binding.btnViewComments.setOnClickListener(){
+            val intent = Intent (activity, UserOwnComment::class.java)
             activity?.startActivity(intent)
         }
 

@@ -8,33 +8,30 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.databinding.ActivityAnswerBinding
+import com.example.assignment.databinding.ActivityUserOwnCommentBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AnswerActivity : AppCompatActivity() {
+class UserOwnComment : AppCompatActivity() {
     private lateinit var database : DatabaseReference
     private lateinit var commentArrayList: ArrayList<Comment>
     private lateinit var commentRecycleView: RecyclerView
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var binding: ActivityAnswerBinding
+    private lateinit var binding: ActivityUserOwnCommentBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityAnswerBinding.inflate(layoutInflater)
+        binding = ActivityUserOwnCommentBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val quesTitle = intent.getStringExtra("quesTitle").toString() ?: "null"
-        binding.tvQuestion.text = quesTitle
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        commentRecycleView = binding.commentDisplay
+        commentRecycleView = binding.titleCommentDisplay
         commentRecycleView.layoutManager = LinearLayoutManager(this)
         commentRecycleView.setHasFixedSize(true)
         commentArrayList = arrayListOf<Comment>()
-        getCommentData(quesTitle)
 
         firebaseAuth= FirebaseAuth.getInstance()
         val id = firebaseAuth.uid!!
@@ -46,36 +43,12 @@ class AnswerActivity : AppCompatActivity() {
             username = "fail"
         }
 
-        var realtimeDB = FirebaseDatabase.getInstance().getReference("Answer")
+        binding.tvInstru.text = username
+        getCommentData(username)
 
-        val answerComment = binding.tfComment
-        val btnSendComment: ImageButton = binding.btnSendComment
-
-        btnSendComment.setOnClickListener {
-            val date = Calendar.getInstance().time
-            val formatter = SimpleDateFormat.getDateTimeInstance() //or use getDateInstance()
-            val formatedDate = formatter.format(date)
-
-            var ansQuestionTitle = quesTitle
-            var ansComment = answerComment.text.toString()
-            var ansDate: String = formatedDate
-
-            realtimeDB.child(ansDate).setValue(Comment(ansQuestionTitle,ansComment, ansDate, username))
-                .addOnSuccessListener {
-                    Toast.makeText(this,"Your comment is posted.", Toast.LENGTH_LONG).show()
-                }.addOnFailureListener{
-                    Toast.makeText(this,"Your comment is failed to post.", Toast.LENGTH_LONG).show()
-                }
-
-            finish()
-            overridePendingTransition(0, 0)
-            startActivity(intent)
-            overridePendingTransition(0, 0)
-
-        }
     }
 
-    private fun getCommentData(quesTitle: String) {
+    private fun getCommentData(username: String) {
         database = FirebaseDatabase.getInstance().getReference("Answer")
 
         database.addValueEventListener(object : ValueEventListener {
@@ -84,7 +57,7 @@ class AnswerActivity : AppCompatActivity() {
                     for(commentSnapshot in snapshot.children){
                         val comment = commentSnapshot.getValue(Comment::class.java)
                         if (comment != null) {
-                            if (comment.ansQuestionTitle == quesTitle) {
+                            if (comment.ansIdName == username) {
                                 commentArrayList.add(comment!!)
                             }
                         }
@@ -103,6 +76,4 @@ class AnswerActivity : AppCompatActivity() {
             }
         })
     }
-
-
 }

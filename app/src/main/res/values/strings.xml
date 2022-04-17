@@ -39,4 +39,5 @@ Back to
     <string name="sortbydate">Sort By Date</string>
     <string name="search">Search</string>
     <string name="resetpass">Enter your <b>Email</b> to receive instruction to rest your password.</string>
+    <string name="Title">Title</string>
 </resources>
