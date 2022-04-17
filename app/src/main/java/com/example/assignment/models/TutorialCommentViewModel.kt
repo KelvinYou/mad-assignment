@@ -8,7 +8,7 @@ import com.google.firebase.ktx.Firebase
 import com.example.assignment.data.TutorialComment
 
 class TutorialCommentViewModel : ViewModel() {
-        private val col = Firebase.firestore.collection("Comment")
+        private val col = Firebase.firestore.collection("TutorialComment")
         private val c = MutableLiveData<List<TutorialComment>>()
 
         init {
@@ -37,11 +37,11 @@ class TutorialCommentViewModel : ViewModel() {
             col.add(comment)
         }
 
-        fun getCountUser(articleID: String) : Int {
+        fun getCountUser(tutorialID: String) : Int {
             var count = 0
 
             c.value?.forEach { comment ->
-                if(comment.articleID == articleID){
+                if(comment.tutorialID == tutorialID){
                     count += 1
                 }
             }

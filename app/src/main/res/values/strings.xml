@@ -36,4 +36,5 @@ Back to
     <string name="title_activity_tutorial_detail">TutorialDetailActivity</string>
     <string name="add_tutorial_title_max_100_characters">Add tutorial title (max 15 words)</string>
     <string name="post">Post</string>
+    <string name="search">Search</string>
 </resources>
