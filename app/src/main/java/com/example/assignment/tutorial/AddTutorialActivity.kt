@@ -74,6 +74,7 @@ class AddTutorialActivity : AppCompatActivity() {
         }
 
         val tutorial = Tutorial (
+//            id = tutorialTitle,
             title = tutorialTitle,
             content = tutorialDetail,
             status = "Posted",
