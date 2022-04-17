@@ -20,6 +20,7 @@ class QuestionsList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_questions_list)
+        firebaseAuth= FirebaseAuth.getInstance()
 
         quesRecycleView = findViewById(R.id.questionsList)
         quesRecycleView.layoutManager = LinearLayoutManager(this)
