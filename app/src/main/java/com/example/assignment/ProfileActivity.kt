@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -78,7 +79,7 @@ class ProfileActivity : AppCompatActivity() {
         name=binding.nameEt.text.toString().trim()
         phone=binding.phoneEt.text.toString().trim()
 
-        if(name.isEmpty()){
+        if(name.isEmpty()||phone.isEmpty()){
             Toast.makeText(this,"Enter Name",Toast.LENGTH_SHORT).show()
 
         }else{
