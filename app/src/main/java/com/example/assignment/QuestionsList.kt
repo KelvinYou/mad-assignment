@@ -5,8 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.assignment.AnswerQuestions
-import com.example.assignment.Questions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
