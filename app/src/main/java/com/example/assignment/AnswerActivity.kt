@@ -71,7 +71,6 @@ class AnswerActivity : AppCompatActivity() {
             overridePendingTransition(0, 0)
             startActivity(intent)
             overridePendingTransition(0, 0)
-
         }
     }
 
@@ -80,6 +79,7 @@ class AnswerActivity : AppCompatActivity() {
 
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                commentArrayList.clear()
                 if(snapshot.exists()){
                     for(commentSnapshot in snapshot.children){
                         val comment = commentSnapshot.getValue(Comment::class.java)
