@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_ask_questions.*
 
 class AskQuestions : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +24,7 @@ class AskQuestions : AppCompatActivity() {
             var askTitle = editTextTitle.text.toString()
             var askBody = editTextBody.text.toString()
             var askTags = editTextTags.text.toString()
+           // var askImage = addImageBtn.text.toString()
             var userID =""
 
             //database.push().setValue(Ask(askTitle,askBody,askTags))

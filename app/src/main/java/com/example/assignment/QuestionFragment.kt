@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class QuestionFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,6 +27,7 @@ class QuestionFragment : Fragment() {
         val quesInputTitle = findViewById<EditText>(R.id.quesInputTitle)
         val quesInputBody = findViewById<EditText>(R.id.quesInputBody)
         val quesInputTags = findViewById<EditText>(R.id.quesInputTags)
+        val btnUploadImg: Button = findViewById(R.id.btnUploadImg)
         val btnQuesPost: Button = findViewById(R.id.btnQuesPost)
         val btnQuesReview: Button = findViewById(R.id.btnQuesReview)
 
@@ -37,27 +39,29 @@ class QuestionFragment : Fragment() {
 
             if(title.isEmpty()){
                 quesInputTitle.error = "Please enter title"
-            }
-            if(body.isEmpty()){
-                quesInputTitle.error = "Please enter body"
-            }
-            if(tags.isEmpty()){
-                quesInputTitle.error = "Please enter tags"
-            }
 
-
-            realtimeDB.child(title.toString()).setValue(Ask(title, body, tags,userID.toString()))
-                .addOnSuccessListener {
-                Toast.makeText(activity,"Your question is posted.", Toast.LENGTH_LONG).show()
-            }.addOnFailureListener{
-                Toast.makeText(activity,"Your question is failed to post.", Toast.LENGTH_LONG).show()
-            }
+            }else if(body.isEmpty()) {
+                    quesInputBody.error = "Please enter body"
+                }else if (tags.isEmpty()) {
+                    quesInputTags.error = "Please enter tags"
+                }else {
+                    realtimeDB.child(title.toString()).setValue(Ask(title, body, tags,userID.toString())).addOnSuccessListener {
+                        Toast.makeText(activity,"Your question is posted.", Toast.LENGTH_LONG).show()
+                    }.addOnFailureListener{
+                        Toast.makeText(activity,"Your question is failed to post.", Toast.LENGTH_LONG).show()
+                    }
+                }
         }
 
         btnQuesReview.setOnClickListener {
             val intent = Intent (activity, QuestionsList::class.java)
             activity?.startActivity(intent)
             val userid = intent.getStringExtra("userID").toString() ?: "null"
+        }
+
+        btnUploadImg.setOnClickListener {
+            val intent = Intent (activity, QuestionImage::class.java)
+            activity?.startActivity(intent)
         }
 
     }
