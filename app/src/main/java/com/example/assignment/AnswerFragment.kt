@@ -17,23 +17,17 @@ class AnswerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         _binding= FragmentAnswerBinding.inflate(inflater,container,false)
-        //binding = DataBindingUtil.inflate(inflater,R.layout.fragment_answer, container, false)
 
         binding.btnViewAllQuestion.setOnClickListener(){
             val intent = Intent (activity, AllQuestions::class.java)
             activity?.startActivity(intent)
         }
 
-        binding.btnYourQuestion.setOnClickListener(){
-
-        }
-
-        binding.btnTestComment.setOnClickListener(){
-            val intent = Intent (activity, AnswerActivity::class.java)
-            activity?.startActivity(intent)
-        }
+        //binding.btnViewComments.setOnClickListener(){
+        //    val intent = Intent (activity, UserOwnComment::class.java)
+        //    activity?.startActivity(intent)
+        //}
 
         return binding.root
     }

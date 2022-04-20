@@ -48,16 +48,29 @@
 
     <TextView
         android:id="@+id/tvQuestion"
-        android:layout_width="376dp"
-        android:layout_height="76dp"
+        android:layout_width="372dp"
+        android:layout_height="52dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="23dp"
         android:background="@drawable/blackborder"
         android:text="Question or Answer display here"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/commentDisplay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="85dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="6dp"
+        android:text="Question:"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvQuestion"
+        app:layout_constraintEnd_toEndOf="@+id/tvQuestion"
+        app:layout_constraintStart_toStartOf="@+id/tvQuestion" />
 </androidx.constraintlayout.widget.ConstraintLayout>
