@@ -9,55 +9,50 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.assignment.databinding.ActivityAnswerBinding
 import com.example.assignment.databinding.FragmentCommentBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_answer.*
 import kotlinx.android.synthetic.main.activity_main_qn.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AnswerActivity : AppCompatActivity() {
+class CommentFragment : Fragment() {
+    //private var layoutManager: RecyclerView.LayoutManager? = null
+   // private var adapter: RecyclerView.Adapter<CommentListAdapter.ViewHolder>? = null
     private lateinit var database : DatabaseReference
     private lateinit var commentArrayList: ArrayList<Comment>
     private lateinit var commentRecycleView: RecyclerView
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var binding: ActivityAnswerBinding
-    //private var layoutManager: RecyclerView.LayoutManager? = null
-    //private var adapter: RecyclerView.Adapter<CommentListAdapter.ViewHolder>? = null
+    private var _binding: FragmentCommentBinding? =null
+    private val binding get()=_binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding= ActivityAnswerBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+       // layoutManager = LinearLayoutManager(activity)
 
-        firebaseAuth = FirebaseAuth.getInstance()
+       // commentRecyclerView.LayoutManager = layoutManager
 
-        //layoutManager = LinearLayoutManager(this)
-        //commentDisplay.layoutManager = layoutManager
         //adapter = CommentListAdapter()
-        //commentDisplay.adapter = adapter
+        //recyclerView.adapter = adapter
 
+        _binding= FragmentCommentBinding.inflate(inflater,container,false)
 
         commentRecycleView = binding.commentDisplay
-        commentRecycleView.layoutManager = LinearLayoutManager(this)
+        commentRecycleView.layoutManager = LinearLayoutManager(activity)
         commentRecycleView.setHasFixedSize(true)
-        commentArrayList = arrayListOf<Comment>()
-        getCommentData()
 
         firebaseAuth= FirebaseAuth.getInstance()
         val id = firebaseAuth.uid!!
         var username: String = "hello"
-        val userDB = FirebaseDatabase.getInstance().getReference("user")
+        var userDB = FirebaseDatabase.getInstance().getReference("user")
         userDB.child(id).get().addOnSuccessListener {
             username = it.child("name").value as String
         }.addOnFailureListener{
             username = "fail"
         }
+
+        //var ansIdName = readUsername(id)
 
         var realtimeDB = FirebaseDatabase.getInstance().getReference("Answer")
 
@@ -76,35 +71,58 @@ class AnswerActivity : AppCompatActivity() {
             var ansComment = answerComment.text.toString()
             var ansDate: String = formatedDate
 
-            realtimeDB.child(ansDate).setValue(Comment(ansQuestionTitle,ansComment, ansDate, username))
+            realtimeDB.child(ansQuestionTitle).child(username).setValue(Comment(ansQuestionTitle,ansComment, ansDate, username))
         }
+
+        return binding.root
+    }
+
+    private fun readUsername(id: String): String {
+        var username: String = "fail?"
+        var userDB = FirebaseDatabase.getInstance().getReference("user")
+        userDB.child(id).get().
+        addOnSuccessListener {
+            username = it.child("name").value as String
+            Log.i("firebase", "Got value ${it.value}")
+        }.addOnFailureListener{
+            Log.e("firebase", "Error getting data", it)
+        }
+        return username
     }
 
     private fun getCommentData() {
+
+        //var database = FirebaseDatabase.getInstance().reference
         database = FirebaseDatabase.getInstance().getReference("Answer")
 
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
                     for(commentSnapshot in snapshot.children){
+
                         val comment = commentSnapshot.getValue(Comment::class.java)
                         commentArrayList.add(comment!!)
                     }
+
                     var adapter = CommentListAdapter(commentArrayList)
                     commentRecycleView.adapter = adapter
                     adapter.setOnItemClickListener(object : CommentListAdapter.onItemClickedListener{
                         override fun onItemClick(position: Int) {
-                            val intent = Intent(this@AnswerActivity, AnswerQuestions::class.java)
-                            this@AnswerActivity.startActivity(intent)
+                            TODO("Not yet implemented")
                         }
+
                     })
+
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
-        })
-    }
 
+
+        })
+
+    }
 
 }

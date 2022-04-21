@@ -13,41 +13,38 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.databinding.ActivityAnswerBinding
+import com.example.assignment.databinding.ActivityAnswerQuestionsBinding
 import com.example.assignment.databinding.FragmentCommentBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_answer.*
 import kotlinx.android.synthetic.main.activity_main_qn.*
+import kotlinx.android.synthetic.main.fragment_question.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AnswerActivity : AppCompatActivity() {
+class AnswerQuestions : AppCompatActivity() {
     private lateinit var database : DatabaseReference
     private lateinit var commentArrayList: ArrayList<Comment>
     private lateinit var commentRecycleView: RecyclerView
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var binding: ActivityAnswerBinding
-    //private var layoutManager: RecyclerView.LayoutManager? = null
-    //private var adapter: RecyclerView.Adapter<CommentListAdapter.ViewHolder>? = null
+    private lateinit var binding: ActivityAnswerQuestionsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityAnswerBinding.inflate(layoutInflater)
+        binding= ActivityAnswerQuestionsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val quesTitle = intent.getStringExtra("quesTitle").toString() ?: "null"
+        binding.tvQuestion.text = quesTitle
+
         firebaseAuth = FirebaseAuth.getInstance()
-
-        //layoutManager = LinearLayoutManager(this)
-        //commentDisplay.layoutManager = layoutManager
-        //adapter = CommentListAdapter()
-        //commentDisplay.adapter = adapter
-
 
         commentRecycleView = binding.commentDisplay
         commentRecycleView.layoutManager = LinearLayoutManager(this)
         commentRecycleView.setHasFixedSize(true)
         commentArrayList = arrayListOf<Comment>()
-        getCommentData()
+        getCommentData(quesTitle)
 
         firebaseAuth= FirebaseAuth.getInstance()
         val id = firebaseAuth.uid!!
@@ -61,8 +58,6 @@ class AnswerActivity : AppCompatActivity() {
 
         var realtimeDB = FirebaseDatabase.getInstance().getReference("Answer")
 
-        //val answerQuestionTitle = findViewById<EditText>(R.id.quesInputTitle)
-        val answerQuestionTitle = "upload title"
         val answerComment = binding.tfComment
         val btnSendComment: ImageButton = binding.btnSendComment
 
@@ -71,8 +66,7 @@ class AnswerActivity : AppCompatActivity() {
             val formatter = SimpleDateFormat.getDateTimeInstance() //or use getDateInstance()
             val formatedDate = formatter.format(date)
 
-            //var title = answerQuestionTitle.text.toString()
-            var ansQuestionTitle = answerQuestionTitle
+            var ansQuestionTitle = quesTitle
             var ansComment = answerComment.text.toString()
             var ansDate: String = formatedDate
 
@@ -80,7 +74,7 @@ class AnswerActivity : AppCompatActivity() {
         }
     }
 
-    private fun getCommentData() {
+    private fun getCommentData(quesTitle: String) {
         database = FirebaseDatabase.getInstance().getReference("Answer")
 
         database.addValueEventListener(object : ValueEventListener {
@@ -88,14 +82,18 @@ class AnswerActivity : AppCompatActivity() {
                 if(snapshot.exists()){
                     for(commentSnapshot in snapshot.children){
                         val comment = commentSnapshot.getValue(Comment::class.java)
-                        commentArrayList.add(comment!!)
+                        if (comment != null) {
+                            if (comment.ansQuestionTitle == quesTitle) {
+                                commentArrayList.add(comment!!)
+                            }
+                        }
                     }
                     var adapter = CommentListAdapter(commentArrayList)
                     commentRecycleView.adapter = adapter
                     adapter.setOnItemClickListener(object : CommentListAdapter.onItemClickedListener{
                         override fun onItemClick(position: Int) {
-                            val intent = Intent(this@AnswerActivity, AnswerQuestions::class.java)
-                            this@AnswerActivity.startActivity(intent)
+                            val intent = Intent(this@AnswerQuestions, AnswerQuestions::class.java)
+                            this@AnswerQuestions.startActivity(intent)
                         }
                     })
                 }

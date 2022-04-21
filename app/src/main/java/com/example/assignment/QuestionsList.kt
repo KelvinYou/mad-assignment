@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.assignment.AnswerQuestions
+import com.example.assignment.Questions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -52,14 +54,12 @@ class QuestionsList : AppCompatActivity() {
                     quesRecycleView.adapter = adapter
                     adapter.setOnClickListener(object : QuestionListAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
-                            val intent = Intent(this@QuestionsList, AnswerActivity::class.java)
+                            val intent = Intent(this@QuestionsList, AnswerQuestions::class.java)
                             this@QuestionsList.startActivity(intent)
                         }
 
                         override fun onItemClick(position: Int, quesTitle: String) {
-                            val intent = Intent(this@QuestionsList, AnswerActivity::class.java)
-                                .putExtra("quesTitle", quesTitle)
-                            this@QuestionsList.startActivity(intent)
+                            TODO("Not yet implemented")
                         }
 
                     })

@@ -18,26 +18,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.234" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <Button
+        android:id="@+id/btnYourQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
-        android:text="View all question existing in the server"
-        app:layout_constraintEnd_toEndOf="@+id/btnViewAllQuestion"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="@+id/btnViewAllQuestion"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="316dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="8dp"
-        android:text="Click the question you want to answer to direct to comment page!"
-        android:textAlignment="center"
+        android:layout_marginTop="68dp"
+        android:text="Your Question"
         app:layout_constraintEnd_toEndOf="@+id/btnViewAllQuestion"
         app:layout_constraintStart_toStartOf="@+id/btnViewAllQuestion"
         app:layout_constraintTop_toBottomOf="@+id/btnViewAllQuestion" />
 
+    <Button
+        android:id="@+id/btnTestComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="216dp"
+        android:text="Comment(Test)"
+        app:layout_constraintEnd_toEndOf="@+id/btnViewAllQuestion"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btnViewAllQuestion"
+        app:layout_constraintTop_toBottomOf="@+id/btnViewAllQuestion" />
 </androidx.constraintlayout.widget.ConstraintLayout>

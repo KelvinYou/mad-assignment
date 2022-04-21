@@ -30,7 +30,11 @@ class CommentListAdapter (private val commentList: List<Comment>): RecyclerView.
         var commentDate: TextView = commentView.findViewById(R.id.commentDate)
         var userCommentDetail: TextView = commentView.findViewById(R.id.userCommentDetail)
 
-
+        init {
+            commentView.setOnClickListener {
+                listener.onItemClick(adapterPosition)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

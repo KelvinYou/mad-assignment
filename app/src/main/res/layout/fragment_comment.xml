@@ -41,13 +41,14 @@
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/btnSendComment"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.842"
+        app:layout_constraintVertical_bias="0.858"
         tools:listitem="@layout/comment_display" />
 
     <TextView
-        android:id="@+id/tvQuestion"
+        android:id="@+id/tvQna"
         android:layout_width="376dp"
         android:layout_height="76dp"
         android:layout_marginTop="16dp"
