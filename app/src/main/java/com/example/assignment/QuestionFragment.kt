@@ -27,7 +27,6 @@ class QuestionFragment : Fragment() {
         val quesInputTitle = findViewById<EditText>(R.id.quesInputTitle)
         val quesInputBody = findViewById<EditText>(R.id.quesInputBody)
         val quesInputTags = findViewById<EditText>(R.id.quesInputTags)
-        val btnUploadImg: Button = findViewById(R.id.btnUploadImg)
         val btnQuesPost: Button = findViewById(R.id.btnQuesPost)
         val btnQuesReview: Button = findViewById(R.id.btnQuesReview)
 
@@ -58,11 +57,5 @@ class QuestionFragment : Fragment() {
             activity?.startActivity(intent)
             val userid = intent.getStringExtra("userID").toString() ?: "null"
         }
-
-        btnUploadImg.setOnClickListener {
-            val intent = Intent (activity, QuestionImage::class.java)
-            activity?.startActivity(intent)
-        }
-
     }
 }
