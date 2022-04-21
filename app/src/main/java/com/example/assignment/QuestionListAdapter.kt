@@ -37,6 +37,7 @@ class QuestionListAdapter(private val quesList : ArrayList<Questions>) : Recycle
         holder.tvTitle.text = currentitem.askTitle
         holder.tvBody.text = currentitem.askBody
         holder.tvTags.text = currentitem.askTags
+        currentitem.askImage?.let { holder.tvImage.setImageResource(it) }
     }
 
     override fun getItemCount(): Int {
@@ -49,6 +50,7 @@ class QuestionListAdapter(private val quesList : ArrayList<Questions>) : Recycle
         val tvTitle : TextView = itemView.findViewById(R.id.tvTitle)
         val tvBody : TextView = itemView.findViewById(R.id.tvBody)
         val tvTags : TextView = itemView.findViewById(R.id.tvTags)
+        val tvImage : ImageView = itemView.findViewById(R.id.tvImage)
 
         init{
             itemView.setOnClickListener {
