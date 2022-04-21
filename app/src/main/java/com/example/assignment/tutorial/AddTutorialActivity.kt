@@ -98,8 +98,8 @@ class AddTutorialActivity : AppCompatActivity() {
 
     }
 
-    private fun wordCountCheck(tutorialTitle: String): Boolean {
-        val words = tutorialTitle.split("\\s+".toRegex())
+    private fun wordCountCheck(articleTitle: String): Boolean {
+        val words = articleTitle.split("\\s+".toRegex())
 
         return words.size > 15
     }

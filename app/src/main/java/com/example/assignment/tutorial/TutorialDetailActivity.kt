@@ -83,7 +83,7 @@ class TutorialDetailActivity : AppCompatActivity() {
 //
 //    private fun generateLink(): Uri {
 //        val dynamicLink = Firebase.dynamicLinks.dynamicLink {
-//            link = Uri.parse("https://www.agmo.com/?type=Tutorial&id=${a.id}")
+//            link = Uri.parse("https://www.agmo.com/?type=Article&id=${a.id}")
 //            domainUriPrefix = "https://agmo.page.link"
 //            // Open links with this app on Android
 //            androidParameters { }
@@ -114,8 +114,8 @@ class TutorialDetailActivity : AppCompatActivity() {
         )
 
         if(lk.insert(like)){
-            val title = "Someone Like Your Tutorial"
-            val message = "${Firebase.auth.currentUser?.email} like your tutorial (${a.title})"
+            val title = "Someone Like Your Article"
+            val message = "${Firebase.auth.currentUser?.email} like your article (${a.title})"
             val type = "Like"
             val id = a.id
 
@@ -146,9 +146,9 @@ class TutorialDetailActivity : AppCompatActivity() {
 //        a.status = "Deleted"
 //        a.modifiedDate = Date()
 //        ar.set(a)
-//        val title = "Your Tutorial be Deleted"
-//        val message = "Admin deleted your tutorial (${a.title})"
-//        val type = "Delete Tutorial"
+//        val title = "Your Article be Deleted"
+//        val message = "Admin delete your article (${a.title})"
+//        val type = "Delete Article"
 //        val id = a.id
 
 //        PushNotification(
@@ -160,7 +160,7 @@ class TutorialDetailActivity : AppCompatActivity() {
 //            ),
 //            owner.token
 //        ).also{
-//            sendNotification(it,"Tutorial_Delete")
+//            sendNotification(it,"Article_Delete")
 //        }
 //        finish()
 //    }

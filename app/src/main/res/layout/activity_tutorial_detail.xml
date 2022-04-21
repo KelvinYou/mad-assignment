@@ -5,17 +5,15 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:paddingBottom="20px"
-        android:layout_height="630dp">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
             android:background="#FED8B1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             tools:context=".tutorial.TutorialDetailActivity">
 
             <TextView
