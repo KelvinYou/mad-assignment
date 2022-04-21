@@ -25,9 +25,6 @@
             android:name=".ForgotPassword"
             android:exported="false" />
         <activity
-            android:name=".AnswerQuestions"
-            android:exported="false" />
-        <activity
             android:name=".tutorial.TutorialCommentActivity"
             android:exported="false" />
         <activity
@@ -43,15 +40,6 @@
             android:exported="false" />
         <activity
             android:name=".AskQuestions"
-            android:exported="false" />
-        <activity
-            android:name=".Review"
-            android:exported="false" />
-        <activity
-            android:name=".AskQuestion"
-            android:exported="false" />
-        <activity
-            android:name=".MainQnA"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
